@@ -1,6 +1,8 @@
 <h2><%= @group.name %></h2>
 
-<% @group.users do |u| %>
-	<%= u.name %> |
-	<%= u.score %>
+<% @group_users.each do |u| %>
+	<%= u.email %> |
+	<%= u.score %><br>
 <% end %>
+
+<%= link_to 'View groups', groups_path %>

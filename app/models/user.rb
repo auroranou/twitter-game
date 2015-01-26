@@ -5,4 +5,11 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_and_belongs_to_many :groups
+
+  after_initialize :set_score
+
+  private
+  def set_score
+  	self.score = 0
+  end
 end

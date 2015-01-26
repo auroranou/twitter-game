@@ -7,12 +7,15 @@ class GroupsController < ApplicationController
 	end
 
 	def add_user
-		current_user.groups << Group.find(params[:id])
-		redirect_to @group
+		if current_user.groups.include?(@group)
+			redirect_to @group
+		else
+			current_user.groups << @group
+		end
 	end
 
 	def show
-		@group_users = @group.users.order()
+		@group_users = @group.users.order(score: :desc)
 	end
 
 	def new
