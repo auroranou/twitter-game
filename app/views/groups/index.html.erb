@@ -1,0 +1,6 @@
+<h2>Groups</h2>
+
+<% @groups.each do |g| %>
+	<%= g.name %> | 
+	<%= link_to 'Join group', '/groups/' + g.id.to_s + '/join_group' %>
+<% end %>
