@@ -1,0 +1,6 @@
+<h2><%= @group.name %></h2>
+
+<% @group.users do |u| %>
+	<%= u.name %> |
+	<%= u.score %>
+<% end %>

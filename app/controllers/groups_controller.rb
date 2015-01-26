@@ -12,7 +12,7 @@ class GroupsController < ApplicationController
 	end
 
 	def show
-		# @group = Group.find(params[:id])
+		@group_users = @group.users.order()
 	end
 
 	def new
