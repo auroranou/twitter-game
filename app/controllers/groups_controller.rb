@@ -4,6 +4,7 @@ class GroupsController < ApplicationController
 
 	def index
 		@groups = Group.all
+		@group = Group.new
 	end
 
 	def add_user
@@ -19,6 +20,7 @@ class GroupsController < ApplicationController
 	end
 
 	def new
+		@group = Group.new
 	end
 
 	def create

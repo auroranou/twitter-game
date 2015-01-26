@@ -4,4 +4,6 @@ Rails.application.routes.draw do
   root 'groups#index'
   # root 'static_pages#index'
   get '/groups/:id/join_group', to: 'groups#add_user'
+
+  get '/static_pages', to: 'static_pages#index'
 end
