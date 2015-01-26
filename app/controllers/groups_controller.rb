@@ -1,6 +1,6 @@
 class GroupsController < ApplicationController
 	before_action :authenticate_user!
-	before_action :set_group, except: :index
+	before_action :set_group, except: [:index, :new, :create]
 
 	def index
 		@groups = Group.all
@@ -11,7 +11,7 @@ class GroupsController < ApplicationController
 		if current_user.groups.include?(@group)
 			redirect_to @group
 		else
-			current_user.groups << @group
+			@groups_user = GroupsUser.create(user_id: current_user.id, group_id: params[:id], is_owner?: false)
 		end
 	end
 
@@ -24,8 +24,22 @@ class GroupsController < ApplicationController
 	end
 
 	def create
-
+		@group = Group.new(group_params)
+		if @group.save
+			@groups_user = GroupsUser.create(user_id: current_user.id, group_id: @group.id, is_owner?: true)
+			redirect_to @group
+		else
+			render :new
+		end
 	end
+
+	# def create_groups_user
+	# 	if condition
+	# 		@groups_user = GroupsUser.new(user_id: current_user.id, group_id: params[:id], is_owner?: false)
+	# 	else
+	# 		@groups_user = GroupsUser.new(user_id: current_user.id, group_id: params[:id], is_owner?: true)
+	# 	end
+	# end
 
 	def edit
 	end
