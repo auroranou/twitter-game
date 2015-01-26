@@ -12,6 +12,9 @@ groups = Group.create([
 	{name: 'Team 2'}
 ])
 
-Group.all[0].users << User.first
-Group.all[0].users << User.last
-Group.all[1].users << User.all[1]
+GroupsUser.create([
+	{user_id: users[0].id, group_id: groups[0].id, is_owner?: false},
+	{user_id: users[1].id, group_id: groups[0].id, is_owner?: false},
+	{user_id: users[2].id, group_id: groups[0].id, is_owner?: true},
+	{user_id: users[0].id, group_id: groups[1].id, is_owner?: true}
+	])
