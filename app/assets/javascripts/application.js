@@ -14,3 +14,22 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+function mostFollowers() {
+  $('.answer').one('click', function(event){
+    event.preventDefault();
+    if ($(this).attr('id') > $(this).siblings('.answer').attr('id')){
+      alert('you win!');
+    }
+    else {
+      alert('sorry, you lose!');
+    }
+    showFollowers();
+  });
+}
+
+function showFollowers() {
+  $('.answer').each(function(){
+    $(this).append( ' has ' + $(this).attr('id') + ' followers');
+  });
+}
