@@ -48,3 +48,4 @@ group :development, :test do
   gem 'spring'
 end
 
+gem "rspec-rails", :group => [:development, :test]
