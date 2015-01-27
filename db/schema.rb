@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 20150127155607) do
   end
 
   create_table "tweeters", force: :cascade do |t|
+    t.string   "name"
     t.string   "username"
     t.string   "twitter_id"
     t.integer  "follower_count"
