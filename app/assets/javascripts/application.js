@@ -73,6 +73,13 @@ function mostFollowers() {
   });
 }
 
+// function oldestTweeter(){
+// 	$('.answer').one('click', function(event){
+// 		event.preventDefault();
+		
+// 	})
+// }
+
 function showFollowers() {
   $('.answer').each(function(){
     $(this).append( ' has ' + $(this).attr('id') + ' followers');
