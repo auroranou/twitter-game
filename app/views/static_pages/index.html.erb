@@ -27,7 +27,7 @@
         </div>
       <h2> LIVE TWITTER FEED </h2> 
         <div class="TwitterFeed">
-          <p><%= @twitter.user_timeline("andrew_kim12") %></p>
+          <p><%= @twitter.followers("andrew_kim12").count %></p>
         </div>
       <div class="quiz">  
         <div class="answers">
