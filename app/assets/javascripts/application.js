@@ -15,10 +15,11 @@
 //= require turbolinks
 //= require_tree .
 
+var userId = $('.user_id').attr('id');
+var questionId = $('.question_id').attr('id');
+
 function correctAnswer() {
-	var userId = $('.user_id').attr('id');
-	var questionId = $('.question_id').attr('id');
-	var url = '/questions/' + questionId + '/create_right_answer'
+	var url = '/questions/' + questionId + '/create_right_answer';
 	var data = {
 		'user_id': userId,
 		'question_id': questionId,
@@ -35,13 +36,11 @@ function correctAnswer() {
 		error: function(){
 			console.log('error!');
 		}
-	})
+	});
 }
 
 function wrongAnswer() {
-	var userId = $('.user_id').attr('id');
-	var questionId = $('.question_id').attr('id');
-	var url = '/questions/' + questionId + '/create_wrong_answer'
+	var url = '/questions/' + questionId + '/create_wrong_answer';
 	var data = {
 		'user_id': userId,
 		'question_id': questionId,
@@ -58,7 +57,7 @@ function wrongAnswer() {
 		error: function(){
 			console.log('error!');
 		}
-	})
+	});
 }
 
 function mostFollowers() {
