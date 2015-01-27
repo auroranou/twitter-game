@@ -3,7 +3,11 @@ class Tweeter < ActiveRecord::Base
 
 	def update_attributes
 		set_twitter_api
-		self.follower_count = @twitter.followers(self.username).count
+		self.follower_count = @twitter.user(self.username).followers_count
+		self.creation_date = @twitter.user(self.username).created_at
+		self.friends_count = @twitter.user(self.username).friends_count
+		self.statuses_count = @twitter.user(self.username).statuses_count
+		self.save
 	end
 
 	private
