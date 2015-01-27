@@ -1,6 +1,6 @@
 class StaticPagesController < ApplicationController
 	before_action :authenticate_user!
-	before_action :set_twitter_api, only: [:index]
+	#before_action :set_twitter_api, only: [:index]
 	def index	
 		@question = Question.first
 		@tweeters = Tweeter.all

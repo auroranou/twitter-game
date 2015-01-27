@@ -1,46 +1,37 @@
 <h1>Twitter Quiz / Trendster</h1>
-
-    <div class="Scoreboard">
-      <h2> SCOREBOARD</h2>
-        <div class="Group 1">
-          <h3> this is group 1 scoreboard</h3>
-          <ul id="nav">
-            <li>MemberName1</li>
-            <li>MemberName2</li>
-          </ul>
-        </div>
-
-        <div class="Group 2">
-          <h3> this is group 2 scoreboard</h3>
-            <ul id="nav">
-              <li>MemberName1</li>
-              <li>MemberName2</li>
-            </ul>
-        </div>
     
-      <h2> NAV LINKS </h2>
-        <div class="nav">
-          <ul id="nav">
-            <li>View Group Scoreboard</li>
-            <li>Logout</li>
-          </ul>
-        </div>
-      <h2> LIVE TWITTER FEED </h2> 
-        <div class="TwitterFeed">
-          <p><%= @twitter.followers("andrew_kim12").count %></p>
-        </div>
-      <div class="quiz">  
-        <div class="answers">
-          <p>Answer 1</p>
-          <p>Answer 2</p>
-        </div> 
-      </div>  
+<h2> NAV LINKS </h2>
+<div class="nav">
+  <ul id="nav">
+    <li>View Group Scoreboard</li>
+    <li>Logout</li>
+  </ul>
+</div>
 
-    </body>
+<div id="quizModal" class="quizDialog"> 
+  <div>
+    <a href="#close" title="Close" class="close">X</a>
+    <h2>Quiz</h2>
+    <p class='question_id' id='<%= @question.id %>'><strong><%= @question.body %></strong></p>
+    <ul>
+      <li class='answer' id='<%= @tweeters[0][:follower_count]%>'>
+        @<%= @tweeters[0][:username] %>
+      </li>
+      <li class='answer' id='<%= @tweeters[1][:follower_count]%>'>
+        @<%= @tweeters[1][:username] %>
+      </li>
+    </ul>
+  </div>
+</div>
 
-    <footer>
-        <div class="Footer">
-            <b>"Copyright: Alison, Aurora, Andy and Akin"</b>
-        </div>
-    </footer>
-</html>
+<footer>
+    <div class="Footer">
+        <b>"Copyright: Alison, Aurora, Andy and Akin"</b>
+    </div>
+</footer>
+
+<p class='user_id' id='<%= current_user.id %>'></p>
+
+<script type="text/javascript">
+  mostFollowers();
+</script>
