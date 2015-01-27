@@ -5,9 +5,10 @@ class StaticPagesController < ApplicationController
 		@question = Question.first
 		@tweeters = Tweeter.all
 		@tweeters = @tweeters.sort_by{rand}
+		@answer = Answer.last
 		respond_to do |format|
 			format.html
-			format.json {render json: @tweeters}
+			format.json {render json: @answer}
 		end
 	end
 
