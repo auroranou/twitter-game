@@ -10,6 +10,14 @@ class StaticPagesController < ApplicationController
 		]
 		@array = @array.sort_by{rand}
 	end
+
+	def create_answer
+		if condition
+			@answer = Answer.create(user_id: current_user.id, question_id: params[:id], is_correct?: true)
+		else
+			@answer = Answer.create(user_id: current_user.id, question_id: params[:id], is_correct?: false)
+		end
+	end
 	
 	private
 	def set_twitter_api
