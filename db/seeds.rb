@@ -58,7 +58,6 @@ tweeters = Tweeter.create([
 	{name: '', username: '', twitter_id: '', follower_count: ''},
 	{name: '', username: '', twitter_id: '', follower_count: ''},
 	{name: '', username: '', twitter_id: '', follower_count: ''},
-
-	])
+])
 
 
