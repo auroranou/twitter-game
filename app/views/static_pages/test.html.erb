@@ -5,16 +5,16 @@
 </div>
 <br>
 
-<div class='answer' id='<%= @array[0][:followers]%>'>
-  @<%= @array[0][:username] %>
+<div class='answer' id='<%= @tweeters[0][:follower_count]%>'>
+  @<%= @tweeters[0][:username] %>
 </div>
 <br>
-<div class='answer' id='<%= @array[1][:followers]%>'>
-  @<%= @array[1][:username] %>
+<div class='answer' id='<%= @tweeters[1][:follower_count]%>'>
+  @<%= @tweeters[1][:username] %>
 </div>
 
 <script type="text/javascript">
-$('.answer').on('click', function(event){
+$('.answer').one('click', function(event){
   event.preventDefault();
   if ($(this).attr('id') > $(this).siblings('.answer').attr('id')){
     alert('you win!');

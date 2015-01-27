@@ -1,6 +1,6 @@
 User.destroy_all
 Group.destroy_all
-GroupsUser.destroy_all
+GroupsUser.destroy_alls
 Question.destroy_all
 
 users = User.create([
