@@ -27,10 +27,9 @@
         </div>
       <h2> LIVE TWITTER FEED </h2> 
         <div class="TwitterFeed">
-          <p><%= @twitter.user("andrew_kim12").created_at %></p>
+          <p><%= @twitter.user_timeline("andrew_kim12") %></p>
         </div>
       <div class="quiz">  
-        <h4><%= @questions.sample.body %></h4>
         <div class="answers">
           <p>Answer 1</p>
           <p>Answer 2</p>
