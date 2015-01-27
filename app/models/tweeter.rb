@@ -1,3 +1,3 @@
 class Tweeter < ActiveRecord::Base
-	validates :username, :twitter_id, :follower_count, presence: true
+	validates :name, :username, :follower_count, presence: true
 end
