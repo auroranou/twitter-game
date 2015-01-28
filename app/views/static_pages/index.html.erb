@@ -14,10 +14,10 @@
     <h2>Quiz</h2>
     <p class='question_id' id='<%= @question.id %>'><strong><%= @question.body %></strong></p>
     <ul>
-      <li class='answer' id='<%= @first.follower_count %>'>
+      <li class='answer' id='<%= @first["#{@question.parameter}"] %>'>
         <%= @first.name %> (@<%= @first.username %>)
       </li>
-      <li class='answer' id='<%= @second.follower_count %>'>
+      <li class='answer' id='<%= @second["#{@question.parameter}"] %>'>
         <%= @second.name %> (@<%= @second.username %>)
       </li>
     </ul>
@@ -31,19 +31,19 @@
 <p class='user_id' id='<%= current_user.id %>'></p>
 
 <script type="text/javascript">
-var attr = $('.question_id').attr('id')
+var attr = '<%= @question.parameter %>'
 console.log(attr);
 switch(attr) {
-  case '1':
+  case 'follower_count':
     most();
     break;
-  case '2':
+  case 'creation_date':
     // oldestTweeter();
     break;
-  case '3':
+  case 'statuses_count':
     most();
     break;
-  case '4':
+  case 'friends_count':
     most();
     break;
 }
