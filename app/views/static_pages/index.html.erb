@@ -2,7 +2,7 @@
   <a href="#close" title="Close" class="close">X</a>
   <h2>Quiz</h2>
   <p class='question' id='<%= @question.id %>'><strong><%= @question.body %></strong></p>
-  <ul>
+  <ul class='answers'>
     <li class='answer' id='<%= @first["#{@question.parameter}"] %>'>
       <%= @first.name %> (@<%= @first.username %>)
     </li>
@@ -12,8 +12,8 @@
   </ul>
 </div>
 
-<h2>High Scores</h2>
 <table class='scoreboard'>
+<h2>High Scores</h2>
   <tr>
     <th>User</th>
     <th>Score</th>
@@ -33,16 +33,16 @@
   console.log(attr);
   switch(attr) {
     case 'followers_count':
-      most();
-      break;
-    case 'creation_date':
-      oldestTweeter();
-      break;
-    case 'statuses_count':
-      most();
+      most('followers_count');
       break;
     case 'friends_count':
-      most();
+      most('friends_count');
+      break;
+    case 'statuses_count':
+      most('statuses_count');
+      break;
+    case 'creation_date':
+      oldestTweeter('creation_date');
       break;
   }
 </script>

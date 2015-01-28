@@ -62,7 +62,7 @@ function wrongAnswer() {
 }
 
 var click = 0
-function most() {
+function most(attr) {
   $('.answer').one('click', function(event){
     event.preventDefault();
     if(click < 1){
@@ -75,12 +75,12 @@ function most() {
 	      wrongAnswer();
 	      alert("you suck");
 	    }
-	    show();
+	    show(attr);
   	}
   });
 }
 
-function oldestTweeter(){
+function oldestTweeter(attr){
 	$(".answer").one('click', function(event){
 		event.preventDefault();
 		if(click < 1){
@@ -95,13 +95,36 @@ function oldestTweeter(){
 	    	correctAnswer();
 	      alert("you got it right!");
 	    }
-	    show();
+	    show(attr);
 	  }
 	});
 }
 
-function show() {
+function show(attr) {
   $('.answer').each(function(){
-    $(this).append( ' '+ $(this).attr('id') );
+  	switch(attr) {
+	    case 'followers_count':
+		    $(this).append( ' ' + $(this).attr('id') + ' followers');
+		    break;
+		  case 'friends_count':
+		    $(this).append( ' follows' + $(this).attr('id') );
+		    break;
+		  case 'statuses_count':
+		    $(this).append( ' ' + $(this).attr('id') + ' tweets');
+		    break;
+		  case 'creation_date':
+		  	$(this).append( ' created on ' + Date($(this.attr('id'))));
+  	}
   });
+  $('.answers').append('<button class="next">Next</button>');
+}
+
+function next() {
+	$('#next').one('click', function(event){
+		event.preventDefault();
+		$.ajax({
+			type: 'GET',
+			url: '/'
+		});
+	})
 }
