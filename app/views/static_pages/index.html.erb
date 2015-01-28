@@ -1,35 +1,32 @@
-    <div id ="logo">
-    <a href="http://imgur.com/5jfcRvG"><img src="http://i.imgur.com/5jfcRvG.png" title="source: imgur.com" /></a>
+<div class = "container">
+  <a href="#quizModal" class= "startButton">Start Quiz</a> 
+  <div id="quizModal" class="quizDialog"> 
+    <div>
+      <a href="#close" title="Close" class="close">X</a>
+      <h2>Quiz</h2>
+      <p class='question' id='<%= @question.id %>'><strong><%= @question.body %></strong></p>
+      <ul>
+        <li class='answer' id='<%= @first["#{@question.parameter}"] %>'>
+          <%= @first.name %> (@<%= @first.username %>)
+        </li>
+        <li class='answer' id='<%= @second["#{@question.parameter}"] %>'>
+          <%= @second.name %> (@<%= @second.username %>)
+        </li>
+      </ul>
+    </div>  
   </div>
- <div class = "container">
-    <a href="#quizModal" class= "startButton">Start Quiz</a> 
-    <div id="quizModal" class="quizDialog"> 
-      <div>
-        <a href="#close" title="Close" class="close">X</a>
-        <h2>Quiz</h2>
-        <p class='question' id='<%= @question.id %>'><strong><%= @question.body %></strong></p>
-        <ul>
-          <li class='answer' id='<%= @first["#{@question.parameter}"] %>'>
-            <%= @first.name %> (@<%= @first.username %>)
-          </li>
-          <li class='answer' id='<%= @second["#{@question.parameter}"] %>'>
-            <%= @second.name %> (@<%= @second.username %>)
-          </li>
-        </ul>
-      </div>  
-    </div>
-    <table class='scoreboard'>
-      <tr>
-        <th>User</th>
-        <th>Score</th>
-      </tr>
-      <% @users.each do |u| %>
-      <tr>
-        <td><%= u.email %></td>
-        <td><%= u.score %></td>
-      </tr>
-    <% end %>
-    </table>
+  <table class='scoreboard'>
+    <tr>
+      <th>User</th>
+      <th>Score</th>
+    </tr>
+    <% @users.each do |u| %>
+    <tr>
+      <td><%= u.email %></td>
+      <td><%= u.score %></td>
+    </tr>
+  <% end %>
+  </table>
 </div>     
 
 <p class='user' id='<%= current_user.id %>'></p>
@@ -52,4 +49,3 @@
       break;
   }
 </script>
-
