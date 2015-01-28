@@ -75,6 +75,10 @@ body{
 
 .close:hover { background: #00d9ff; }
 
+header {
+	width: 100%;
+}
+
 #logo {
 	margin: auto;
 }
@@ -83,6 +87,15 @@ body{
 	border: solid 1px;
 	width: 200px;
 	height: 200px;
+}
+
+nav ul {
+	list-style-type: none;
+	text-align: center;
+}
+
+nav ul li {
+	display: inline;
 }
 
 .scoreboard {
