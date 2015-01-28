@@ -40,10 +40,9 @@ ActiveRecord::Schema.define(version: 20150127224808) do
   create_table "tweeters", force: :cascade do |t|
     t.string   "name"
     t.string   "username"
-    t.string   "twitter_id"
-    t.integer  "follower_count"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.integer  "followers_count"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
     t.string   "creation_date"
     t.string   "friends_count"
     t.string   "statuses_count"

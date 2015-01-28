@@ -66,12 +66,31 @@ function most() {
     event.preventDefault();
     if ( $(this).attr('id') > $(this).siblings('.answer').attr('id') ){
       correctAnswer();
+      alert("you got it right!");
     }
     else {
       wrongAnswer();
+      alert("you suck");
     }
     show();
   });
+}
+
+function oldestTweeter(){
+	$(".answer").one('click', function(event){
+		event.preventDefault();
+		var date1 = new Date($(this).attr('id'));
+		var date2 = new Date($(this).siblings('.answer').attr('id'));
+		if(date1.getTime() > date2.getTime()){
+			correctAnswer();
+      alert("you got it right!");
+    }
+    else {
+      wrongAnswer();
+      alert("you suck");
+    }
+    show();
+	});
 }
 
 function show() {

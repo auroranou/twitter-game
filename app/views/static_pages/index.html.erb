@@ -34,16 +34,16 @@
 var attr = '<%= @question.parameter %>'
 console.log(attr);
 switch(attr) {
-  case 'follower_count':
+  case 'followers_count':
     most();
     break;
   case 'creation_date':
+    oldestTweeter();
+    break;
+  case 'statuses_count':
     most();
     break;
-  case 'status_count':
-    most();
-    break;
-  case 'friend_count':
+  case 'friends_count':
     most();
     break;
 }
