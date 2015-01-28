@@ -7,23 +7,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-	<header></header>
-	<% if current_user %>
-	
 
-	<% end %>
-
-<%= yield %>
-
-	<div class="nav">
-		<ul>
-			<li><a href="groups/_form">Make Group</a></li>
-    		<li><a href="groups/show">View All Groups</a></li>
-			<li><%= link_to 'Sign out', destroy_user_session_path, method: :delete %></li>
-		</ul>
-	</div>
-
-=======
 	<header>
 		<h1>Twitter Quiz / Trendster</h1>
 		<% if current_user %>
@@ -42,6 +26,5 @@
 	<footer>
 	  <b>"©2015: Alison, Aurora, Andy and Akin"</b>
 	</footer>
->>>>>>> 701ce039825ef54bc8254cbdb061372e3c2a09a5
 </body>
 </html>

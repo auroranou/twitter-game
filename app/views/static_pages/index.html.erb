@@ -1,89 +1,38 @@
-<<<<<<< HEAD
 <body>
   
   <div id ="logo">
     <a href="http://imgur.com/5jfcRvG"><img src="http://i.imgur.com/5jfcRvG.png" title="source: imgur.com" /></a>
   </div>
-      
-
-  <a href="#quizModal" class="startButton">Start Quiz</a>
-  
-
-  <div id="quizModal" class="quizDialog"> 
-    <div>
-      <a href="#close" title="Close" class="close">X</a>
-      <h2>Quiz</h2>
-      <p class='question_id' id='<%= @question.id %>'><strong><%= @question.body %></strong></p>
-      <ul>
-        <li class='answer' id='<%= @tweeters[0][:follower_count]%>'>
-          @<%= @tweeters[0][:username] %>
-        </li>
-        <li class='answer' id='<%= @tweeters[1][:follower_count]%>'>
-          @<%= @tweeters[1][:username] %>
-        </li>
-      </ul>
+ <div class = "container">
+    <a href="#quizModal" class= "startButton">Start Quiz</a> 
+    <div id="quizModal" class="quizDialog"> 
+      <div>
+        <a href="#close" title="Close" class="close">X</a>
+        <h2>Quiz</h2>
+        <p class='question' id='<%= @question.id %>'><strong><%= @question.body %></strong></p>
+        <ul>
+          <li class='answer' id='<%= @first["#{@question.parameter}"] %>'>
+            <%= @first.name %> (@<%= @first.username %>)
+          </li>
+          <li class='answer' id='<%= @second["#{@question.parameter}"] %>'>
+            <%= @second.name %> (@<%= @second.username %>)
+          </li>
+        </ul>
+      </div>  
     </div>
-  </div>
-
-  <div class="scoreboard">
-      <h2> SCOREBOARD</h2>
-      <table>
-          <tr>
-            <th>Name</th>
-            <th>Score</th>
-          </tr>   
-          <tr>
-            <td>Username</td>
-            <td>4234</td>
-          </tr>      
-          <tr>
-            <td>Username</td>
-            <td>3434</td>
-          </tr>     
-      </table>
-  </div>    
-
-  <footer>
-      <div class="Footer">
-          <b>"Copyright: Alison, Aurora, Andy and Akin"</b>
-      </div>
-  </footer>
-
-  <p class='user_id' id='<%= current_user.id %>'></p>
-
-  <script type="text/javascript">
-    mostFollowers();
-  </script>
-</body>
-=======
-<div id="quizModal" class="quizDialog"> 
-  <a href="#close" title="Close" class="close">X</a>
-  <h2>Quiz</h2>
-  <p class='question' id='<%= @question.id %>'><strong><%= @question.body %></strong></p>
-  <ul>
-    <li class='answer' id='<%= @first["#{@question.parameter}"] %>'>
-      <%= @first.name %> (@<%= @first.username %>)
-    </li>
-    <li class='answer' id='<%= @second["#{@question.parameter}"] %>'>
-      <%= @second.name %> (@<%= @second.username %>)
-    </li>
-  </ul>
-</div>
-
-<h2>High Scores</h2>
-<table class='scoreboard'>
-  <tr>
-    <th>User</th>
-    <th>Score</th>
-  </tr>
-  <% @users.each do |u| %>
-    <tr>
-      <td><%= u.email %></td>
-      <td><%= u.score %></td>
-    </tr>
-  <% end %>
-</table>
-
+    <table class='scoreboard'>
+      <tr>
+        <th>User</th>
+        <th>Score</th>
+      </tr>
+      <% @users.each do |u| %>
+      <tr>
+        <td><%= u.email %></td>
+        <td><%= u.score %></td>
+      </tr>
+    <% end %>
+    </table>
+</div>     
 <p class='user' id='<%= current_user.id %>'></p>
 
 <script type="text/javascript">
@@ -104,4 +53,4 @@
       break;
   }
 </script>
->>>>>>> 701ce039825ef54bc8254cbdb061372e3c2a09a5
+

@@ -10,38 +10,16 @@ body{
 	background-color: #534f4e;
 	color: #fafafa;
 	font-family: 'Raleway', 'Arial', sans-serif;
-	display: flex;
 	min-height: 100vh;
-	flex-direction: column;
+
 }
 
-.startButton {
-	margin:auto;
-	float: left;
+.container {
+	flex-direction: row;
+	display: flex;
+	justify-content:center;
+
 }
-
-#logo {
-	margin: auto;
-}
-
-.nav {
-	float: right;
-	margin-right: 200px;
-	border: solid 1px;
-	width: 200px;
-	height: 200px;
-}
-
-.scoreboard {
-	border: solid 1px;
-	width: 300px; 
-	height: 300px;
-	float: right;
-	margin-left: 200px;
-}
-
-
-
 .quizDialog {
 	position: fixed;
 	font-family: Arial, Helvetica, sans-serif;
@@ -56,6 +34,7 @@ body{
 	-moz-transition: opacity 400ms ease-in;
 	transition: opacity 400ms ease-in;
 	pointer-events: none;
+
 }
 
 .quizDialog:target {
@@ -95,3 +74,22 @@ body{
 }
 
 .close:hover { background: #00d9ff; }
+
+#logo {
+	margin: auto;
+}
+
+.nav {
+	border: solid 1px;
+	width: 200px;
+	height: 200px;
+}
+
+.scoreboard {
+	border: solid 1px;
+	width: 300px; 
+	height: 300px;
+}
+
+
+
