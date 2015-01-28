@@ -6,6 +6,7 @@ class StaticPagesController < ApplicationController
 		@tweeters = Tweeter.all.sort_by{rand}
 		@first = @tweeters[0]
 		@second = @tweeters[1]
+		@users = User.all.sort_by{ |user| user.score }.reverse
 		@answer = Answer.last
 		respond_to do |format|
 			format.html
