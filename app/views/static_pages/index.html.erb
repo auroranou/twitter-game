@@ -31,21 +31,20 @@
 <p class='user' id='<%= current_user.id %>'></p>
 
 <script type="text/javascript">
-var attr = '<%= @question.parameter %>'
-console.log(attr);
-switch(attr) {
-  case 'followers_count':
-    most();
-    break;
-  case 'creation_date':
-    oldestTweeter();
-    break;
-  case 'statuses_count':
-    most();
-    break;
-  case 'friends_count':
-    most();
-    break;
-}
-
+  var attr = '<%= @question.parameter %>'
+  console.log(attr);
+  switch(attr) {
+    case 'followers_count':
+      most();
+      break;
+    case 'creation_date':
+      oldestTweeter();
+      break;
+    case 'statuses_count':
+      most();
+      break;
+    case 'friends_count':
+      most();
+      break;
+  }
 </script>

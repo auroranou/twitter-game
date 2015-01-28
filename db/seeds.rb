@@ -23,7 +23,7 @@ GroupsUser.create([
 
 questions = Question.create([
 	{body: "Who has more followers?", parameter: "followers_count"},
-	{body: "Who has been on twitter longer?", parameter: "creation_date"},
+	{body: "Who has been on Twitter longer?", parameter: "creation_date"},
 	{body: "Who has tweeted more?", parameter: "statuses_count"},
 	{body: "Who follows more people?", parameter: "friends_count"}
 ])
