@@ -2,7 +2,7 @@ class StaticPagesController < ApplicationController
 	before_action :authenticate_user!
 	#before_action :set_twitter_api, only: [:index]
 	def index	
-		@question = Question.all.sample
+		@questions = Question.all.sample
 		@tweeters = Tweeter.all.sort_by{rand}
 		@first = @tweeters[0]
 		@second = @tweeters[1]

@@ -3,8 +3,7 @@
   <div id="quizModal" class="quizDialog"> 
     <div>
       <a href="#close" title="Close" class="close">X</a>
-      <h2>Quiz</h2>
-      <p class='question' id='<%= @question.id %>'><strong><%= @question.body %></strong></p>
+      <p class='question' id='<%= @question.id %>'><%= @question.body %></p>
       <ul>
         <li class='answer' id='<%= @first["#{@question.parameter}"] %>'>
           <%= @first.name %> (@<%= @first.username %>)
@@ -47,5 +46,16 @@
     case 'creation_date':
       oldestTweeter('creation_date');
       break;
+  }
+
+  function next() {
+    var questionId = '<%= @question.id %>';
+    var questionBody = '<%= @question.body %>';
+    $('#next').on('click', function(event){
+      event.preventDefault();
+      console.log(questionId, questionBody)
+      $('.question').attr('id', questionId);
+      $('.question').html(questionBody);
+    });
   }
 </script>

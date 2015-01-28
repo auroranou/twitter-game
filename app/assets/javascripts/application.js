@@ -76,7 +76,8 @@ function most(attr) {
 	      alert("you suck");
 	    }
 	    show(attr);
-      $('#quizModal div').append('<button class="next">Next</button>');
+      $('#quizModal div').append('<button id="next">Next</button>');
+      next();
   	}
   });
 }
@@ -97,7 +98,8 @@ function oldestTweeter(attr){
 	      alert("you got it right!");
 	    }
 	    show(attr);
-      $('#quizModal div').append('<button class="next">Next</button>');
+      $('#quizModal div').append('<button id="next">Next</button>');
+      next();
 	  }
 	});
 }
@@ -106,26 +108,17 @@ function show(attr) {
   $('.answer').each(function(){
   	switch(attr) {
 	    case 'followers_count':
-		    $(this).append( ' ' + $(this).attr('id') + ' followers');
+		    $(this).append(' ' + $(this).attr('id') + ' followers');
 		    break;
 		  case 'friends_count':
-		    $(this).append( ' follows' + $(this).attr('id') );
+		    $(this).append(' follows ' + $(this).attr('id'));
 		    break;
 		  case 'statuses_count':
-		    $(this).append( ' ' + $(this).attr('id') + ' tweets');
+		    $(this).append(' ' + $(this).attr('id') + ' tweets');
 		    break;
 		  case 'creation_date':
-		  	$(this).append( ' created on ' + Date($(this.attr('id'))));
+		  	var date = new Date($(this).attr('id'));
+		  	$(this).append(' created on ' + date);
   	}
   });
-}
-
-function next() {
-	$('#next').one('click', function(event){
-		event.preventDefault();
-		$.ajax({
-			type: 'GET',
-			url: '/'
-		});
-	})
 }
