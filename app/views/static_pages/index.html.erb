@@ -24,6 +24,19 @@
   </div>
 </div>
 
+<table class='scoreboard'>
+  <tr>
+    <th>User</th>
+    <th>Score</th>
+  </tr>
+  <% @users.each do |u| %>
+    <tr>
+      <td><%= u.email %></td>
+      <td><%= u.score %></td>
+    </tr>
+  <% end %>
+</table>
+
 <footer>
   <b>"Copyright: Alison, Aurora, Andy and Akin"</b>
 </footer>

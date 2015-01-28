@@ -8,4 +8,7 @@ class User < ActiveRecord::Base
   has_many :answers
   has_many :questions, through: :answers
 
+  def score
+  	self.answers.select{ |answer| answer.is_correct? == true }.count
+  end
 end
