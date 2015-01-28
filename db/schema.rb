@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150127155607) do
+ActiveRecord::Schema.define(version: 20150128151512) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,23 +26,26 @@ ActiveRecord::Schema.define(version: 20150127155607) do
     t.string "name"
   end
 
-  create_table "groups_users", id: false, force: :cascade do |t|
-    t.integer "user_id",   null: false
-    t.integer "group_id",  null: false
+  create_table "groups_users", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "group_id"
     t.boolean "is_owner?"
   end
 
   create_table "questions", force: :cascade do |t|
     t.string "body"
+    t.string "parameter"
   end
 
   create_table "tweeters", force: :cascade do |t|
     t.string   "name"
     t.string   "username"
-    t.string   "twitter_id"
-    t.integer  "follower_count"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.integer  "followers_count"
+    t.integer  "friends_count"
+    t.integer  "statuses_count"
+    t.string   "creation_date"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -58,7 +61,6 @@ ActiveRecord::Schema.define(version: 20150127155607) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "score"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

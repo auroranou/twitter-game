@@ -2,12 +2,15 @@ class StaticPagesController < ApplicationController
 	before_action :authenticate_user!
 	#before_action :set_twitter_api, only: [:index]
 	def index	
-		@question = Question.first
-		@tweeters = Tweeter.all
-		@tweeters = @tweeters.sort_by{rand}
+		@question = Question.all.sample
+		@tweeters = Tweeter.all.sort_by{rand}
+		@first = @tweeters[0]
+		@second = @tweeters[1]
+		@users = User.all.sort_by{ |user| user.score }.reverse
+		@answer = Answer.last
 		respond_to do |format|
 			format.html
-			format.json {render json: @tweeters}
+			format.json {render json: @answer}
 		end
 	end
 

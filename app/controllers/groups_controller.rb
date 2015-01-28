@@ -16,7 +16,7 @@ class GroupsController < ApplicationController
 	end
 
 	def show
-		@group_users = @group.users.order(score: :desc)
+		@group_users = @group.users.sort_by{ |user| user.score }.reverse
 	end
 
 	def new

@@ -15,21 +15,93 @@
 //= require turbolinks
 //= require_tree .
 
-function mostFollowers() {
+function correctAnswer() {
+	var userId = $('.user').attr('id');
+	var questionId = $('.question').attr('id');
+	var url = '/questions/' + questionId + '/create_right_answer';
+	var data = {
+		'user_id': userId,
+		'question_id': questionId,
+		'is_correct?': true		
+	}
+	$.ajax({
+		type: 'POST',
+		dataType: 'json',
+		url: url,
+		data: data,
+		success: function(response, status, jqXHR){
+			console.log(response);
+		},
+		error: function(){
+			console.log('error!');
+		}
+	});
+}
+
+function wrongAnswer() {
+	var userId = $('.user').attr('id');
+	var questionId = $('.question').attr('id');
+	var url = '/questions/' + questionId + '/create_wrong_answer';
+	var data = {
+		'user_id': userId,
+		'question_id': questionId,
+		'is_correct?': false
+	}
+	$.ajax({
+		type: 'POST',
+		dataType: 'json',
+		url: url,
+		data: data,
+		success: function(response, status, jqXHR){
+			console.log(response);
+		},
+		error: function(){
+			console.log('error!');
+		}
+	});
+}
+
+var click = 0
+function most() {
   $('.answer').one('click', function(event){
     event.preventDefault();
-    if ($(this).attr('id') > $(this).siblings('.answer').attr('id')){
-      alert('you win!');
-    }
-    else {
-      alert('sorry, you lose!');
-    }
-    showFollowers();
+    if(click < 1){
+    	click++
+	    if ( $(this).attr('id') > $(this).siblings('.answer').attr('id') ){
+	      correctAnswer();
+	      alert("you got it right!");
+	    }
+	    else {
+	      wrongAnswer();
+	      alert("you suck");
+	    }
+	    show();
+  	}
   });
 }
 
-function showFollowers() {
+function oldestTweeter(){
+	$(".answer").one('click', function(event){
+		event.preventDefault();
+		if(click < 1){
+	    click++
+			var date1 = new Date($(this).attr('id'));
+			var date2 = new Date($(this).siblings('.answer').attr('id'));
+			if(date1.getTime() > date2.getTime()){
+				wrongAnswer();
+	      alert("you suck");
+	    }
+	    else {
+	    	correctAnswer();
+	      alert("you got it right!");
+	    }
+	    show();
+	  }
+	});
+}
+
+function show() {
   $('.answer').each(function(){
-    $(this).append( ' has ' + $(this).attr('id') + ' followers');
+    $(this).append( ' '+ $(this).attr('id') );
   });
 }

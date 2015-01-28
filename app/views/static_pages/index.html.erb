@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <body>
   
   <div id ="logo">
@@ -54,3 +55,53 @@
     mostFollowers();
   </script>
 </body>
+=======
+<div id="quizModal" class="quizDialog"> 
+  <a href="#close" title="Close" class="close">X</a>
+  <h2>Quiz</h2>
+  <p class='question' id='<%= @question.id %>'><strong><%= @question.body %></strong></p>
+  <ul>
+    <li class='answer' id='<%= @first["#{@question.parameter}"] %>'>
+      <%= @first.name %> (@<%= @first.username %>)
+    </li>
+    <li class='answer' id='<%= @second["#{@question.parameter}"] %>'>
+      <%= @second.name %> (@<%= @second.username %>)
+    </li>
+  </ul>
+</div>
+
+<h2>High Scores</h2>
+<table class='scoreboard'>
+  <tr>
+    <th>User</th>
+    <th>Score</th>
+  </tr>
+  <% @users.each do |u| %>
+    <tr>
+      <td><%= u.email %></td>
+      <td><%= u.score %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p class='user' id='<%= current_user.id %>'></p>
+
+<script type="text/javascript">
+  var attr = '<%= @question.parameter %>'
+  console.log(attr);
+  switch(attr) {
+    case 'followers_count':
+      most();
+      break;
+    case 'creation_date':
+      oldestTweeter();
+      break;
+    case 'statuses_count':
+      most();
+      break;
+    case 'friends_count':
+      most();
+      break;
+  }
+</script>
+>>>>>>> 701ce039825ef54bc8254cbdb061372e3c2a09a5

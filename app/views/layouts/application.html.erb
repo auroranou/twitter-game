@@ -23,5 +23,25 @@
 		</ul>
 	</div>
 
+=======
+	<header>
+		<h1>Twitter Quiz / Trendster</h1>
+		<% if current_user %>
+			<nav>
+				<ul>
+					<li><%= link_to 'Home', root_path %></li>
+					<li><%= link_to 'Groups', groups_path %></li>
+					<li><%= link_to 'Sign out', destroy_user_session_path, method: :delete %></li>
+				</ul>
+			</nav>
+		<% end %>
+	</header>
+
+<%= yield %>
+
+	<footer>
+	  <b>"©2015: Alison, Aurora, Andy and Akin"</b>
+	</footer>
+>>>>>>> 701ce039825ef54bc8254cbdb061372e3c2a09a5
 </body>
 </html>
