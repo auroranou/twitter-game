@@ -15,6 +15,8 @@
 //= require turbolinks
 //= require_tree .
 
+  
+
 function correctAnswer() {
 	var userId = $('.user').attr('id');
 	var questionId = $('.question').attr('id');
@@ -75,7 +77,7 @@ function most(attr) {
 	      wrongAnswer();
 	      alert("you suck");
 	    }
-	    show(attr);
+	    showResults(attr);
       $('#next').show();
       next();
   	}
@@ -97,18 +99,18 @@ function oldestTweeter(attr){
 	    	correctAnswer();
 	      alert("you got it right!");
 	    }
-	    show(attr);
+	    showResults(attr);
       $('#next').show();
       next();
 	  }
 	});
 }
 
-function show(attr) {
+function showResults(attr) {
   $('.answer').each(function(){
   	switch(attr) {
 	    case 'followers_count':
-		    $(this).append(' ' + $(this).attr('id') + ' followers');
+		    $(this).append(' has ' + $(this).attr('id') + ' followers');
 		    break;
 		  case 'friends_count':
 		    $(this).append(' follows ' + $(this).attr('id'));
