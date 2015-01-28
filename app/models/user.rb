@@ -8,11 +8,4 @@ class User < ActiveRecord::Base
   has_many :answers
   has_many :questions, through: :answers
 
-
-  after_initialize :set_score
-
-  private
-  def set_score
-  	self.score = 0
-  end
 end

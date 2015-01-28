@@ -1,9 +1,9 @@
 class Tweeter < ActiveRecord::Base
-	validates :name, :username, :follower_count, presence: true
+	validates :name, :username, presence: true
 
 	def update_attributes
 		set_twitter_api
-		self.follower_count = @twitter.user(self.username).followers_count
+		self.followers_count = @twitter.user(self.username).followers_count
 		self.creation_date = @twitter.user(self.username).created_at
 		self.friends_count = @twitter.user(self.username).friends_count
 		self.statuses_count = @twitter.user(self.username).statuses_count
