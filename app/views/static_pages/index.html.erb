@@ -12,7 +12,7 @@
   <div>
     <a href="#close" title="Close" class="close">X</a>
     <h2>Quiz</h2>
-    <p class='question_id' id='<%= @question.id %>'><strong><%= @question.body %></strong></p>
+    <p class='question' id='<%= @question.id %>'><strong><%= @question.body %></strong></p>
     <ul>
       <li class='answer' id='<%= @first["#{@question.parameter}"] %>'>
         <%= @first.name %> (@<%= @first.username %>)
@@ -28,7 +28,7 @@
   <b>"Copyright: Alison, Aurora, Andy and Akin"</b>
 </footer>
 
-<p class='user_id' id='<%= current_user.id %>'></p>
+<p class='user' id='<%= current_user.id %>'></p>
 
 <script type="text/javascript">
 var attr = '<%= @question.parameter %>'
@@ -36,10 +36,9 @@ console.log(attr);
 switch(attr) {
   case 'follower_count':
     most();
-    showFollowers();
     break;
   case 'creation_date':
-    // oldestTweeter();
+    most();
     break;
   case 'statuses_count':
     most();
