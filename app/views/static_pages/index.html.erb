@@ -1,37 +1,56 @@
-<h1>Twitter Quiz / Trendster</h1>
-    
-<h2> NAV LINKS </h2>
-<div class="nav">
-  <ul id="nav">
-    <li>View Group Scoreboard</li>
-    <li>Logout</li>
-  </ul>
-</div>
-
-<div id="quizModal" class="quizDialog"> 
-  <div>
-    <a href="#close" title="Close" class="close">X</a>
-    <h2>Quiz</h2>
-    <p class='question_id' id='<%= @question.id %>'><strong><%= @question.body %></strong></p>
-    <ul>
-      <li class='answer' id='<%= @tweeters[0][:follower_count]%>'>
-        @<%= @tweeters[0][:username] %>
-      </li>
-      <li class='answer' id='<%= @tweeters[1][:follower_count]%>'>
-        @<%= @tweeters[1][:username] %>
-      </li>
-    </ul>
+<body>
+  
+  <div id ="logo">
+    <a href="http://imgur.com/5jfcRvG"><img src="http://i.imgur.com/5jfcRvG.png" title="source: imgur.com" /></a>
   </div>
-</div>
+      
 
-<footer>
-    <div class="Footer">
-        <b>"Copyright: Alison, Aurora, Andy and Akin"</b>
+  <a href="#quizModal" class="startButton">Start Quiz</a>
+  
+
+  <div id="quizModal" class="quizDialog"> 
+    <div>
+      <a href="#close" title="Close" class="close">X</a>
+      <h2>Quiz</h2>
+      <p class='question_id' id='<%= @question.id %>'><strong><%= @question.body %></strong></p>
+      <ul>
+        <li class='answer' id='<%= @tweeters[0][:follower_count]%>'>
+          @<%= @tweeters[0][:username] %>
+        </li>
+        <li class='answer' id='<%= @tweeters[1][:follower_count]%>'>
+          @<%= @tweeters[1][:username] %>
+        </li>
+      </ul>
     </div>
-</footer>
+  </div>
 
-<p class='user_id' id='<%= current_user.id %>'></p>
+  <div class="scoreboard">
+      <h2> SCOREBOARD</h2>
+      <table>
+          <tr>
+            <th>Name</th>
+            <th>Score</th>
+          </tr>   
+          <tr>
+            <td>Username</td>
+            <td>4234</td>
+          </tr>      
+          <tr>
+            <td>Username</td>
+            <td>3434</td>
+          </tr>     
+      </table>
+  </div>    
 
-<script type="text/javascript">
-  mostFollowers();
-</script>
+  <footer>
+      <div class="Footer">
+          <b>"Copyright: Alison, Aurora, Andy and Akin"</b>
+      </div>
+  </footer>
+
+  <p class='user_id' id='<%= current_user.id %>'></p>
+
+  <script type="text/javascript">
+    mostFollowers();
+  </script>
+</body>

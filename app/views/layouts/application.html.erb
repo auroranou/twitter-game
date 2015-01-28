@@ -9,14 +9,19 @@
 <body>
 	<header></header>
 	<% if current_user %>
-	<nav>
-		<ul>
-			<li><%= link_to 'Sign out', destroy_user_session_path, method: :delete %></li>
-		</ul>
-	</nav>
+	
+
 	<% end %>
 
 <%= yield %>
+
+	<div class="nav">
+		<ul>
+			<li><a href="groups/_form">Make Group</a></li>
+    		<li><a href="groups/show">View All Groups</a></li>
+			<li><%= link_to 'Sign out', destroy_user_session_path, method: :delete %></li>
+		</ul>
+	</div>
 
 </body>
 </html>
