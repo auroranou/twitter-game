@@ -76,6 +76,7 @@ function most(attr) {
 	      alert("you suck");
 	    }
 	    show(attr);
+      $('#quizModal div').append('<button class="next">Next</button>');
   	}
   });
 }
@@ -96,6 +97,7 @@ function oldestTweeter(attr){
 	      alert("you got it right!");
 	    }
 	    show(attr);
+      $('#quizModal div').append('<button class="next">Next</button>');
 	  }
 	});
 }
@@ -116,7 +118,6 @@ function show(attr) {
 		  	$(this).append( ' created on ' + Date($(this.attr('id'))));
   	}
   });
-  $('.answers').append('<button class="next">Next</button>');
 }
 
 function next() {
