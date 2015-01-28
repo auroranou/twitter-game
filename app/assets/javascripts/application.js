@@ -15,10 +15,9 @@
 //= require turbolinks
 //= require_tree .
 
-var userId = $('.user_id').attr('id');
-var questionId = $('.question_id').attr('id');
-
 function correctAnswer() {
+	var userId = $('.user').attr('id');
+	var questionId = $('.question').attr('id');
 	var url = '/questions/' + questionId + '/create_right_answer';
 	var data = {
 		'user_id': userId,
@@ -40,6 +39,8 @@ function correctAnswer() {
 }
 
 function wrongAnswer() {
+	var userId = $('.user').attr('id');
+	var questionId = $('.question').attr('id');
 	var url = '/questions/' + questionId + '/create_wrong_answer';
 	var data = {
 		'user_id': userId,
@@ -60,28 +61,21 @@ function wrongAnswer() {
 	});
 }
 
-function mostFollowers() {
+function most() {
   $('.answer').one('click', function(event){
     event.preventDefault();
-    if ($(this).attr('id') > $(this).siblings('.answer').attr('id')){
+    if ( $(this).attr('id') > $(this).siblings('.answer').attr('id') ){
       correctAnswer();
     }
     else {
       wrongAnswer();
     }
-    showFollowers();
+    show();
   });
 }
 
-// function oldestTweeter(){
-// 	$('.answer').one('click', function(event){
-// 		event.preventDefault();
-		
-// 	})
-// }
-
-function showFollowers() {
+function show() {
   $('.answer').each(function(){
-    $(this).append( ' has ' + $(this).attr('id') + ' followers');
+    $(this).append( ' '+ $(this).attr('id') );
   });
 }
