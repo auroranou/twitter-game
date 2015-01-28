@@ -15,10 +15,9 @@
 //= require turbolinks
 //= require_tree .
 
-var userId = $('.user_id').attr('id');
-var questionId = $('.question_id').attr('id');
-
 function correctAnswer() {
+	var userId = $('.user').attr('id');
+	var questionId = $('.question').attr('id');
 	var url = '/questions/' + questionId + '/create_right_answer';
 	var data = {
 		'user_id': userId,
@@ -40,6 +39,8 @@ function correctAnswer() {
 }
 
 function wrongAnswer() {
+	var userId = $('.user').attr('id');
+	var questionId = $('.question').attr('id');
 	var url = '/questions/' + questionId + '/create_wrong_answer';
 	var data = {
 		'user_id': userId,
@@ -69,11 +70,12 @@ function most() {
     else {
       wrongAnswer();
     }
+    show();
   });
 }
 
-function showFollowers() {
+function show() {
   $('.answer').each(function(){
-    $(this).append( ' has ' + $(this).attr('id') + ' followers');
+    $(this).append( ' '+ $(this).attr('id') );
   });
 }
