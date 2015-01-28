@@ -60,16 +60,15 @@ function wrongAnswer() {
 	});
 }
 
-function mostFollowers() {
+function most() {
   $('.answer').one('click', function(event){
     event.preventDefault();
-    if ($(this).attr('id') > $(this).siblings('.answer').attr('id')){
+    if ( $(this).attr('id') > $(this).siblings('.answer').attr('id') ){
       correctAnswer();
     }
     else {
       wrongAnswer();
     }
-    showFollowers();
   });
 }
 

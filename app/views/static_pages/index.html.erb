@@ -14,24 +14,39 @@
     <h2>Quiz</h2>
     <p class='question_id' id='<%= @question.id %>'><strong><%= @question.body %></strong></p>
     <ul>
-      <li class='answer' id='<%= @tweeters[0][:follower_count]%>'>
-        @<%= @tweeters[0][:username] %>
+      <li class='answer' id='<%= @first["#{@question.parameter}"] %>'>
+        <%= @first.name %> (@<%= @first.username %>)
       </li>
-      <li class='answer' id='<%= @tweeters[1][:follower_count]%>'>
-        @<%= @tweeters[1][:username] %>
+      <li class='answer' id='<%= @second["#{@question.parameter}"] %>'>
+        <%= @second.name %> (@<%= @second.username %>)
       </li>
     </ul>
   </div>
 </div>
 
 <footer>
-    <div class="Footer">
-        <b>"Copyright: Alison, Aurora, Andy and Akin"</b>
-    </div>
+  <b>"Copyright: Alison, Aurora, Andy and Akin"</b>
 </footer>
 
 <p class='user_id' id='<%= current_user.id %>'></p>
 
 <script type="text/javascript">
-  mostFollowers();
+var attr = '<%= @question.parameter %>'
+console.log(attr);
+switch(attr) {
+  case 'follower_count':
+    most();
+    showFollowers();
+    break;
+  case 'creation_date':
+    // oldestTweeter();
+    break;
+  case 'statuses_count':
+    most();
+    break;
+  case 'friends_count':
+    most();
+    break;
+}
+
 </script>
