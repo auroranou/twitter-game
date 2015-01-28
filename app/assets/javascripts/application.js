@@ -77,7 +77,6 @@ function most(attr) {
 	    }
 	    show(attr);
       $('#quizModal div').append('<button id="next">Next</button>');
-      next();
   	}
   });
 }
@@ -99,7 +98,6 @@ function oldestTweeter(attr){
 	    }
 	    show(attr);
       $('#quizModal div').append('<button id="next">Next</button>');
-      next();
 	  }
 	});
 }
@@ -122,3 +120,17 @@ function show(attr) {
   	}
   });
 }
+
+$('#next').on('click', function(){
+	$.ajax({
+		type: 'GET',
+		url: '/',
+		dataType: 'json',
+		success: function(response){
+			console.log(response);
+		},
+		error: function(response){
+			console.log('error!');
+		}
+	})
+})
