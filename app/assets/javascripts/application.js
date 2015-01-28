@@ -30,7 +30,7 @@ function correctAnswer() {
 		url: url,
 		data: data,
 		success: function(response, status, jqXHR){
-			console.log(response);
+			console.log('correct answer!');
 		},
 		error: function(){
 			console.log('error!');
@@ -53,7 +53,7 @@ function wrongAnswer() {
 		url: url,
 		data: data,
 		success: function(response, status, jqXHR){
-			console.log(response);
+			console.log('wrong answer!');
 		},
 		error: function(){
 			console.log('error!');
@@ -63,7 +63,7 @@ function wrongAnswer() {
 
 var click = 0
 function most(attr) {
-  $('.answer').one('click', function(event){
+  $('.answer').on('click', function(event){
     event.preventDefault();
     if(click < 1){
     	click++
@@ -76,13 +76,14 @@ function most(attr) {
 	      alert("you suck");
 	    }
 	    show(attr);
-      $('#quizModal div').append('<button id="next">Next</button>');
+      $('#next').show();
+      next();
   	}
   });
 }
 
 function oldestTweeter(attr){
-	$(".answer").one('click', function(event){
+	$(".answer").on('click', function(event){
 		event.preventDefault();
 		if(click < 1){
 	    click++
@@ -97,7 +98,8 @@ function oldestTweeter(attr){
 	      alert("you got it right!");
 	    }
 	    show(attr);
-      $('#quizModal div').append('<button id="next">Next</button>');
+      $('#next').show();
+      next();
 	  }
 	});
 }
@@ -121,16 +123,26 @@ function show(attr) {
   });
 }
 
-$('#next').on('click', function(){
-	$.ajax({
-		type: 'GET',
-		url: '/',
-		dataType: 'json',
-		success: function(response){
-			console.log(response);
-		},
-		error: function(response){
-			console.log('error!');
-		}
-	})
-})
+function next(){
+	$('#next').on('click', function(){
+		$.ajax({
+			type: 'GET',
+			url: '/',
+			dataType: 'json',
+			success: function(response){
+				var question_parameter = response["question"]["parameter"]
+				$(".question").attr("id", response["question"]["id"])
+				$(".question").html(response["question"]["body"])
+				$("#quizModal div ul li").first().attr("id", response['first'][question_parameter])
+				$("#quizModal div ul li").first().html(response['first']['name'] + " (@" + response['first']['username'] + ")")
+				$("#quizModal div ul li").last().attr("id", response['second'][question_parameter])
+				$("#quizModal div ul li").last().html(response['second']['name'] + " (@" + response['second']['username'] + ")")
+				$("#next").hide()
+			},
+			error: function(response){
+				console.log('error!');
+			}
+		});
+		click = 0;
+	});
+}
