@@ -1,29 +1,18 @@
-<h1>Twitter Quiz / Trendster</h1>
-    
-<h2> NAV LINKS </h2>
-<div class="nav">
-  <ul id="nav">
-    <li>View Group Scoreboard</li>
-    <li>Logout</li>
+<div id="quizModal" class="quizDialog"> 
+  <a href="#close" title="Close" class="close">X</a>
+  <h2>Quiz</h2>
+  <p class='question' id='<%= @question.id %>'><strong><%= @question.body %></strong></p>
+  <ul>
+    <li class='answer' id='<%= @first["#{@question.parameter}"] %>'>
+      <%= @first.name %> (@<%= @first.username %>)
+    </li>
+    <li class='answer' id='<%= @second["#{@question.parameter}"] %>'>
+      <%= @second.name %> (@<%= @second.username %>)
+    </li>
   </ul>
 </div>
 
-<div id="quizModal" class="quizDialog"> 
-  <div>
-    <a href="#close" title="Close" class="close">X</a>
-    <h2>Quiz</h2>
-    <p class='question' id='<%= @question.id %>'><strong><%= @question.body %></strong></p>
-    <ul>
-      <li class='answer' id='<%= @first["#{@question.parameter}"] %>'>
-        <%= @first.name %> (@<%= @first.username %>)
-      </li>
-      <li class='answer' id='<%= @second["#{@question.parameter}"] %>'>
-        <%= @second.name %> (@<%= @second.username %>)
-      </li>
-    </ul>
-  </div>
-</div>
-
+<h2>High Scores</h2>
 <table class='scoreboard'>
   <tr>
     <th>User</th>
@@ -36,10 +25,6 @@
     </tr>
   <% end %>
 </table>
-
-<footer>
-  <b>"Copyright: Alison, Aurora, Andy and Akin"</b>
-</footer>
 
 <p class='user' id='<%= current_user.id %>'></p>
 
