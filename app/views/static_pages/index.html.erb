@@ -14,46 +14,36 @@
     <h2>Quiz</h2>
     <p class='question_id' id='<%= @question.id %>'><strong><%= @question.body %></strong></p>
     <ul>
-      <li class='answer' id='<%= @tweeters[0] %>'>
-        @<%= @tweeters[0][:username] %>
+      <li class='answer' id='<%= @first.follower_count %>'>
+        <%= @first.name %> (@<%= @first.username %>)
       </li>
-      <li class='answer' id='<%= @tweeters[1]%>'>
-        @<%= @tweeters[1][:username] %>
+      <li class='answer' id='<%= @second.follower_count %>'>
+        <%= @second.name %> (@<%= @second.username %>)
       </li>
     </ul>
   </div>
 </div>
 
 <footer>
-    <div class="Footer">
-        <b>"Copyright: Alison, Aurora, Andy and Akin"</b>
-    </div>
+  <b>"Copyright: Alison, Aurora, Andy and Akin"</b>
 </footer>
 
 <p class='user_id' id='<%= current_user.id %>'></p>
 
 <script type="text/javascript">
-var attr = <% @question.parameter %>;
+var attr = $('.question_id').attr('id')
 console.log(attr);
 switch(attr) {
-  case 'followers_count':
-    $('.answer').first().attr('id', '<%= @tweeters[0][:follower_count] %>');
-    $('.answer').last().attr('id', '<%= @tweeters[1][:follower_count] %>');
+  case '1':
     most();
     break;
-  case 'created_at':
-    $('.answer').first().attr('id', '<%= @tweeters[0][:creation_date] %>');
-    $('.answer').last().attr('id', '<%= @tweeters[1][:creation_date] %>');
-    oldestTweeter();
+  case '2':
+    // oldestTweeter();
     break;
-  case 'statuses_count':
-    $('.answer').first().attr('id', '<%= @tweeters[0][:statuses_count] %>');
-    $('.answer').last().attr('id', '<%= @tweeters[1][:statuses_count] %>');
+  case '3':
     most();
     break;
-  case 'friends_count':
-    $('.answer').first().attr('id', '<%= @tweeters[0][:friends_count] %>');
-    $('.answer').last().attr('id', '<%= @tweeters[1][:friends_count] %>');
+  case '4':
     most();
     break;
 }
