@@ -36,7 +36,7 @@ function loadQuestion() {
 			checkAnswer(response);
 		},
 		error: function(response) {
-			console.log('error! ' + response);
+			console.log('error in loadQuestion ' + response);
 		}
 	});
 	click = 0;
@@ -60,7 +60,7 @@ function checkAnswer(response) {
 		default:
 			console.log('error in checkAnswer!');
 	}
-	console.log(response);
+	// console.log(response);
 }
 
 function most() {
@@ -69,10 +69,10 @@ function most() {
 		if (click < 1) {
 			click ++;
 			if ( $(this).attr('id') > $(this).siblings('.answer').attr('id') ) {
-				createAnswer(true);
+				createAnswer('correct');
 			}
 			else {
-				createAnswer(false);
+				createAnswer('wrong');
 			}		
 		}
 	});
@@ -86,42 +86,44 @@ function oldest() {
 			var date1 = new Date($(this).attr('id'));
 			var date2 = new Date($(this).siblings('.answer').attr('id'));
 			if(date1.getTime() > date2.getTime()){
-				createAnswer(true);
+				createAnswer('correct');
 	    }
 	    else {
-				createAnswer(false);
+				createAnswer('wrong');
 	    }
 	  }
 	});
 }
 
-function createAnswer(bool) {
+function createAnswer(attr) {
 	var userId = $('.user').attr('id');
 	var questionId = $('.question').attr('id');
-	var url = '/questions/' + questionId;
+	var url = window.location.origin + '/questions/' + questionId;
 	var data = {
 		'user_id': userId,
 		'question_id': questionId,
-		'is_correct?': bool
 	}
-	if (bool == 'true') {
+	if (attr == 'correct') {
 		url += '/create_right_answer';
+		data['is_correct?'] = true
 		$('.question').prepend('<p>Correct!</p>')
 	}
 	else {
 		url += '/create_wrong_answer';
+		data['is_correct?'] = false
 		$('.question').prepend('<p>Wrong!</p>')
 	}
+	console.log(url, data);
 	$.ajax({
 		type: 'POST',
 		dataType: 'json',
 		url: url,
 		data: data,
 		success: function(response, status, jqXHR){
-			console.log('correct answer!');
+			console.log('answer created!');
 		},
-		error: function(){
-			console.log('error!');
+		error: function(response){
+			console.log('error in createAnswer ' + response);
 		}
 	});
 	next();
