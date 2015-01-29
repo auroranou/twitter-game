@@ -46,23 +46,23 @@ function checkAnswer(response) {
 	var secondAns = response['second'];
 	switch(questionParam) {
 		case 'followers_count':
-			$('.answer:first-child').attr('id', firstAns['followers_count']);
-			$('.answer:last-child').attr('id', secondAns['followers_count']);
+			$('.answer:first-child').attr('id', ' has ' + firstAns['followers_count'] + ' followers');
+			$('.answer:last-child').attr('id', ' has ' + secondAns['followers_count'] + ' followers');
 			most();
 			break;
 		case 'friends_count':
-			$('.answer:first-child').attr('id', firstAns['friends_count']);
-			$('.answer:last-child').attr('id', secondAns['friends_count']);
+			$('.answer:first-child').attr('id', ' follows ' + firstAns['friends_count']);
+			$('.answer:last-child').attr('id', ' follows ' + secondAns['friends_count']);
 			most();
 			break;
 		case 'statuses_count':
-			$('.answer:first-child').attr('id', firstAns['statuses_count']);
-			$('.answer:last-child').attr('id', secondAns['statuses_count']);
+			$('.answer:first-child').attr('id', ' has ' + firstAns['statuses_count'] + ' tweets');
+			$('.answer:last-child').attr('id', ' has ' + secondAns['statuses_count'] + ' tweets');
 			most();
 			break;
 		case 'creation_date':
-			$('.answer:first-child').attr('id', firstAns['creation_date']);
-			$('.answer:last-child').attr('id', secondAns['creation_date']);
+			$('.answer:first-child').attr('id', ' has been on Twitter since ' + firstAns['creation_date']);
+			$('.answer:last-child').attr('id', ' has been on Twitter since ' + secondAns['creation_date']);
 			oldest();
 			break
 		default:
@@ -121,7 +121,10 @@ function createAnswer(attr) {
 			console.log('error in createAnswer ' + response);
 		}
 	});
-	$('.question').html(attr);
+	$('.question').html(attr + '!');
+	$('.answer').each(function(){
+		$(this).append( $(this).attr('id') );
+	});
 	next();
 }
 
