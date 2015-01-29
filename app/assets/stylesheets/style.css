@@ -29,6 +29,10 @@ nav {
   padding: 60px 0;
 }
 
+ul {
+ 	list-style-type: none;
+}
+
 nav ul {
   text-align: center;
   background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.2) 25%, rgba(255, 255, 255, 0.2) 75%, rgba(255, 255, 255, 0) 100%);
@@ -42,7 +46,7 @@ nav ul li {
 nav ul li a {
   padding: 18px;
   font-family: "Open Sans";
-  text-transform:uppercase;
+  text-transform: uppercase;
   color: rgba(0, 35, 122, 0.5);
   font-size: 18px;
   text-decoration: none;
@@ -70,7 +74,7 @@ nav ul li a:hover {
 	left: 0;
 	background: rgba(0,0,0,0.8);
 	z-index: 99999;
-	opacity:0;
+	opacity: 0;
 	-webkit-transition: opacity 400ms ease-in;
 	-moz-transition: opacity 400ms ease-in;
 	transition: opacity 400ms ease-in;
@@ -78,7 +82,7 @@ nav ul li a:hover {
 }
 
 .quizDialog:target {
-	opacity:1;
+	opacity: 1;
 	pointer-events: auto;
 }
 
@@ -86,12 +90,13 @@ nav ul li a:hover {
 	width: 400px;
 	position: relative;
 	margin: 10% auto;
-	padding: 5px 20px 13px 20px;
+	padding: 20px;
 	border-radius: 10px;
 	background: #fff;
 	background: -moz-linear-gradient(#fff, #999);
 	background: -webkit-linear-gradient(#fff, #999);
 	background: -o-linear-gradient(#fff, #999);
+	text-align: center;
 } 
 
 .close {
@@ -114,23 +119,6 @@ nav ul li a:hover {
 }
 
 .close:hover { background: #00d9ff; }
-
-
-
-/*.nav {
-	border: solid 1px;
-	width: 200px;
-	height: 200px;
-}
-
-nav ul {
-	list-style-type: none;
-	text-align: center;
-}
-
-nav ul li {
-	display: inline;
-}*/
 
 .scoreboardBox {
 	height: 600px;

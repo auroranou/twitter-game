@@ -3,15 +3,7 @@
   <div id="quizModal" class="quizDialog"> 
     <div>
       <a href="#close" title="Close" class="close">X</a>
-      <p class='question' id='<%= @question.id %>'><%= @question.body %></p>
-      <ul>
-        <li class='answer' id='<%= @first["{@question.parameter}"] %>'>
-          <%= @first.name %> (@<%= @first.username %>)
-        </li>
-        <li class='answer' id='<%= @second["{@question.parameter}"] %>'>
-          <%= @second.name %> (@<%= @second.username %>)
-        </li>
-      </ul>
+      <%= render 'quiz' %>
       <button style="display:none" id="next">Next</button>
     </div>  
   </div>
@@ -29,21 +21,3 @@
 </div>     
 
 <p class='user' id='<%= current_user.id %>'></p>
-
-<script type="text/javascript">
-  var attr = '<%= @question.parameter %>'
-  switch(attr) {
-    case 'followers_count':
-      most('followers_count');
-      break;
-    case 'friends_count':
-      most('friends_count');
-      break;
-    case 'statuses_count':
-      most('statuses_count');
-      break;
-    case 'creation_date':
-      oldestTweeter('creation_date');
-      break;
-  }
-</script>
