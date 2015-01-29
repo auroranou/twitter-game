@@ -113,7 +113,6 @@ function createAnswer(attr) {
 		data['is_correct?'] = false
 		$('.question').prepend('<p>Wrong!</p>')
 	}
-	console.log(url, data);
 	$.ajax({
 		type: 'POST',
 		dataType: 'json',
