@@ -2,13 +2,9 @@
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-<<<<<<< HEAD
 }
-=======
-}*/
 
 @import url(http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz|Coda);
->>>>>>> 9c2cfda566534596e5211a89b31dee45d289b693
 
 body{
 	width: 100%;
@@ -200,8 +196,6 @@ p {
   text-transform: uppercase;
   margin: auto;
 }
-<<<<<<< HEAD
-=======
 
 .groupbox {
 	width: 500px;
@@ -218,7 +212,6 @@ p {
   	text-align: center;
   	padding-top: 10px;
   }
-
 
 .button:hover {
 	background: #666B6B;
@@ -272,5 +265,3 @@ table {
 	color: #ffffff;
 
 }
-
->>>>>>> 9c2cfda566534596e5211a89b31dee45d289b693
