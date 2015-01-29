@@ -15,136 +15,123 @@
 //= require turbolinks
 //= require_tree .
 
-  
+var click;
 
-function correctAnswer() {
-	var userId = $('.user').attr('id');
-	var questionId = $('.question').attr('id');
-	var url = '/questions/' + questionId + '/create_right_answer';
-	var data = {
-		'user_id': userId,
-		'question_id': questionId,
-		'is_correct?': true		
-	}
+function loadQuestion() { 
+	$('.next').remove();
 	$.ajax({
-		type: 'POST',
-		dataType: 'json',
-		url: url,
-		data: data,
-		success: function(response, status, jqXHR){
-			console.log('correct answer!');
+		type: 'GET', 
+		dataType: 'json', 
+		url: window.location.origin + '/questions.json',
+		success: function(response) {
+			var question = response['question'];
+			var firstAns = response['first'];
+			var secondAns = response['second'];
+			$('.question').attr('id', question['id']);
+			$('.question').html(question['body']);
+			$('.answer:first-child').attr('id', firstAns['id']);
+			$('.answer:first-child').html(firstAns['name'] + ' (@' + firstAns['username'] + ')');
+			$('.answer:last-child').attr('id', secondAns['id']);
+			$('.answer:last-child').html(secondAns['name'] + ' (@' + secondAns['username'] + ')');
+			checkAnswer(response);
 		},
-		error: function(){
-			console.log('error!');
+		error: function(response) {
+			console.log('error in loadQuestion ' + response);
+		}
+	});
+	click = 0;
+}
+
+function checkAnswer(response) {
+	var questionParam = response['question']['parameter'];
+	switch(questionParam) {
+		case 'followers_count':
+			most();
+			break;
+		case 'friends_count':
+			most();
+			break;
+		case 'statuses_count':
+			most();
+			break;
+		case 'creation_date':
+			oldest();
+			break
+		default:
+			console.log('error in checkAnswer!');
+	}
+	// console.log(response);
+}
+
+function most() {
+	$('.answer').on('click', function(event){
+		event.preventDefault();
+		if (click < 1) {
+			click ++;
+			if ( $(this).attr('id') > $(this).siblings('.answer').attr('id') ) {
+				createAnswer('correct');
+			}
+			else {
+				createAnswer('wrong');
+			}		
 		}
 	});
 }
 
-function wrongAnswer() {
-	var userId = $('.user').attr('id');
-	var questionId = $('.question').attr('id');
-	var url = '/questions/' + questionId + '/create_wrong_answer';
-	var data = {
-		'user_id': userId,
-		'question_id': questionId,
-		'is_correct?': false
-	}
-	$.ajax({
-		type: 'POST',
-		dataType: 'json',
-		url: url,
-		data: data,
-		success: function(response, status, jqXHR){
-			console.log('wrong answer!');
-		},
-		error: function(){
-			console.log('error!');
-		}
-	});
-}
-
-var click = 0
-function most(attr) {
-  $('.answer').on('click', function(event){
-    event.preventDefault();
-    if(click < 1){
-    	click++
-	    if ( $(this).attr('id') > $(this).siblings('.answer').attr('id') ){
-	      correctAnswer();
-	      alert("you got it right!");
-	    }
-	    else {
-	      wrongAnswer();
-	      alert("you suck");
-	    }
-	    showResults(attr);
-      $('#next').show();
-      next();
-  	}
-  });
-}
-
-function oldestTweeter(attr){
+function oldest() {
 	$(".answer").on('click', function(event){
 		event.preventDefault();
-		if(click < 1){
-	    click++
+		if(click < 1) {
+			click++
 			var date1 = new Date($(this).attr('id'));
 			var date2 = new Date($(this).siblings('.answer').attr('id'));
 			if(date1.getTime() > date2.getTime()){
-				wrongAnswer();
-	      alert("you suck");
+				createAnswer('correct');
 	    }
 	    else {
-	    	correctAnswer();
-	      alert("you got it right!");
+				createAnswer('wrong');
 	    }
-	    showResults(attr);
-      $('#next').show();
-      next();
 	  }
 	});
 }
 
-function showResults(attr) {
-  $('.answer').each(function(){
-  	switch(attr) {
-	    case 'followers_count':
-		    $(this).append(' has ' + $(this).attr('id') + ' followers');
-		    break;
-		  case 'friends_count':
-		    $(this).append(' follows ' + $(this).attr('id'));
-		    break;
-		  case 'statuses_count':
-		    $(this).append(' ' + $(this).attr('id') + ' tweets');
-		    break;
-		  case 'creation_date':
-		  	var date = new Date($(this).attr('id'));
-		  	$(this).append(' created on ' + date);
-  	}
-  });
+function createAnswer(attr) {
+	var userId = $('.user').attr('id');
+	var questionId = $('.question').attr('id');
+	var url = window.location.origin + '/questions/' + questionId;
+	var data = {
+		'user_id': userId,
+		'question_id': questionId,
+	}
+	if (attr == 'correct') {
+		url += '/create_right_answer';
+		data['is_correct?'] = true
+		$('.question').prepend('<p>Correct!</p>')
+	}
+	else {
+		url += '/create_wrong_answer';
+		data['is_correct?'] = false
+		$('.question').prepend('<p>Wrong!</p>')
+	}
+	console.log(url, data);
+	$.ajax({
+		type: 'POST',
+		dataType: 'json',
+		url: url,
+		data: data,
+		success: function(response, status, jqXHR){
+			console.log('answer created!');
+		},
+		error: function(response){
+			console.log('error in createAnswer ' + response);
+		}
+	});
+	next();
 }
 
-function next(){
-	$('#next').on('click', function(){
-		$.ajax({
-			type: 'GET',
-			url: '/',
-			dataType: 'json',
-			success: function(response){
-				var question_parameter = response["question"]["parameter"]
-				$(".question").attr("id", response["question"]["id"])
-				$(".question").html(response["question"]["body"])
-				$("#quizModal div ul li").first().attr("id", response['first'][question_parameter])
-				$("#quizModal div ul li").first().html(response['first']['name'] + " (@" + response['first']['username'] + ")")
-				$("#quizModal div ul li").last().attr("id", response['second'][question_parameter])
-				$("#quizModal div ul li").last().html(response['second']['name'] + " (@" + response['second']['username'] + ")")
-				$("#next").hide()
-			},
-			error: function(response){
-				console.log('error!');
-			}
-		});
-		click = 0;
+function next() {
+	$('.quizDialog div').append('<button class="next">Next</button>');
+	$('.next').on('click', function(event){
+		loadQuestion();
 	});
 }
