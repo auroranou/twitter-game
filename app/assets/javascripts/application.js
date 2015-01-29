@@ -29,9 +29,7 @@ function loadQuestion() {
 			var secondAns = response['second'];
 			$('.question').attr('id', question['id']);
 			$('.question').html(question['body']);
-			$('.answer:first-child').attr('id', firstAns['id']);
 			$('.answer:first-child').html(firstAns['name'] + ' (@' + firstAns['username'] + ')');
-			$('.answer:last-child').attr('id', secondAns['id']);
 			$('.answer:last-child').html(secondAns['name'] + ' (@' + secondAns['username'] + ')');
 			checkAnswer(response);
 		},
@@ -44,17 +42,27 @@ function loadQuestion() {
 
 function checkAnswer(response) {
 	var questionParam = response['question']['parameter'];
+	var firstAns = response['first'];
+	var secondAns = response['second'];
 	switch(questionParam) {
 		case 'followers_count':
+			$('.answer:first-child').attr('id', ' has ' + firstAns['followers_count'] + ' followers');
+			$('.answer:last-child').attr('id', ' has ' + secondAns['followers_count'] + ' followers');
 			most();
 			break;
 		case 'friends_count':
+			$('.answer:first-child').attr('id', ' follows ' + firstAns['friends_count']);
+			$('.answer:last-child').attr('id', ' follows ' + secondAns['friends_count']);
 			most();
 			break;
 		case 'statuses_count':
+			$('.answer:first-child').attr('id', ' has ' + firstAns['statuses_count'] + ' tweets');
+			$('.answer:last-child').attr('id', ' has ' + secondAns['statuses_count'] + ' tweets');
 			most();
 			break;
 		case 'creation_date':
+			$('.answer:first-child').attr('id', ' has been on Twitter since ' + firstAns['creation_date']);
+			$('.answer:last-child').attr('id', ' has been on Twitter since ' + secondAns['creation_date']);
 			oldest();
 			break
 		default:
@@ -68,12 +76,7 @@ function most() {
 		event.preventDefault();
 		if (click < 1) {
 			click ++;
-			if ( $(this).attr('id') > $(this).siblings('.answer').attr('id') ) {
-				createAnswer('correct');
-			}
-			else {
-				createAnswer('wrong');
-			}		
+			( $(this).attr('id') > $(this).siblings('.answer').attr('id') ) ? createAnswer('correct') : createAnswer('wrong');
 		}
 	});
 }
@@ -85,12 +88,7 @@ function oldest() {
 			click++
 			var date1 = new Date($(this).attr('id'));
 			var date2 = new Date($(this).siblings('.answer').attr('id'));
-			if(date1.getTime() > date2.getTime()){
-				createAnswer('correct');
-	    }
-	    else {
-				createAnswer('wrong');
-	    }
+			( date1.getTime() > date2.getTime() ) ? createAnswer('correct') : createAnswer('wrong');
 	  }
 	});
 }
@@ -101,19 +99,16 @@ function createAnswer(attr) {
 	var url = window.location.origin + '/questions/' + questionId;
 	var data = {
 		'user_id': userId,
-		'question_id': questionId,
+		'question_id': questionId
 	}
 	if (attr == 'correct') {
 		url += '/create_right_answer';
 		data['is_correct?'] = true
-		$('.question').prepend('<p>Correct!</p>')
 	}
 	else {
 		url += '/create_wrong_answer';
 		data['is_correct?'] = false
-		$('.question').prepend('<p>Wrong!</p>')
 	}
-	console.log(url, data);
 	$.ajax({
 		type: 'POST',
 		dataType: 'json',
@@ -125,6 +120,10 @@ function createAnswer(attr) {
 		error: function(response){
 			console.log('error in createAnswer ' + response);
 		}
+	});
+	$('.question').html(attr + '!');
+	$('.answer').each(function(){
+		$(this).append( $(this).attr('id') );
 	});
 	next();
 }
