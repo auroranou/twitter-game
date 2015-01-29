@@ -8,7 +8,7 @@ body{
 	width: 100%;
 	background-color: #777;
 	background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAQAAABuBnYAAAAAU0lEQVQIHQXBwRGDIBAAwO2/AMcCDHAcPjIRxjJ8Je1kl1uqUgphsWu6w0sIG6npLpcUBql4e/wsVRKabrkNTacIYbMrwsF06rqUhsnXVKVT+Hj+Ue4rPSONk4kAAAAASUVORK5CYII=);
-	padding-top: 80px;
+	padding-top: 20px;
 	color: #fafafa;
 	min-height: 100vh;
 	font-family: 'Raleway', 'Arial', sans-serif;	
@@ -20,23 +20,20 @@ header {
 
 #logo {
 	margin: auto;
+	display: block;
 }
 
 nav {
   max-width: 2000px;
-  mask-image: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #ffffff 25%, #ffffff 75%, rgba(255, 255, 255, 0) 100%);
+  mask-image: linear-gradient(90deg, rgba(255, 255, 255, 0) 50%, #ffffff 100%, #ffffff 75%, rgba(255, 255, 255, 0) 100%);
   margin: 0 auto;
   padding: 60px 0;
 }
 
-ul {
- 	list-style-type: none;
-}
-
 nav ul {
   text-align: center;
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.2) 25%, rgba(255, 255, 255, 0.2) 75%, rgba(255, 255, 255, 0) 100%);
-  
+  background: linear-gradient(90deg, rgba(1055, 455, 255, 0) 0%, rgba(255, 255, 255, 0.2) 25%, rgba(255, 255, 255, 0.2) 75%, rgba(255, 255, 255, 0) 100%);
+  margin-top: 0px;
 }
 
 nav ul li {
@@ -45,10 +42,10 @@ nav ul li {
 
 nav ul li a {
   padding: 18px;
-  font-family: "Open Sans";
-  text-transform: uppercase;
-  color: rgba(0, 35, 122, 0.5);
-  font-size: 18px;
+  font-family: "Arial";
+  text-transform:uppercase;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 20px;
   text-decoration: none;
   display: block;
 }
@@ -56,7 +53,7 @@ nav ul li a {
 nav ul li a:hover {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1), inset 0 0 1px rgba(255, 255, 255, 0.6);
   background: rgba(255, 255, 255, 0.1);
-  color: rgba(0, 35, 135, 0.7);
+  color: black;
 }
 
 .container {
@@ -121,10 +118,12 @@ nav ul li a:hover {
 .close:hover { background: #00d9ff; }
 
 .scoreboardBox {
-	height: 600px;
+	height: auto;
 	width: 400px; 
 	padding: 20px;
-	background-color: white; 
+	background-color: white;
+	margin-top: 0px;
+	margin-bottom: 40px; 
 
 	/* outer shadows  (note the rgba is red, green, blue, alpha) */
 	-webkit-box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.4); 
@@ -198,3 +197,18 @@ p {
   text-transform: uppercase;
   margin: auto;
 }
+
+.scoreboard{
+	margin-top: 40px;
+}
+/*Start button*/
+.startquiz{
+	text-align: center;
+}
+.startButton{
+	border: 2px solid black;
+	background-color: #525252;
+	text-decoration: none;
+	padding: 10px;
+}
+
