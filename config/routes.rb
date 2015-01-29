@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   resources :groups
+  resources :questions, only: :index
   
   root 'static_pages#index'
   get '/static_pages', to: 'static_pages#index'

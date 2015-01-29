@@ -21,21 +21,3 @@
 </div>     
 
 <p class='user' id='<%= current_user.id %>'></p>
-
-<script type="text/javascript">
-  var attr = '<%= @question.parameter %>'
-  switch(attr) {
-    case 'followers_count':
-      most('followers_count');
-      break;
-    case 'friends_count':
-      most('friends_count');
-      break;
-    case 'statuses_count':
-      most('statuses_count');
-      break;
-    case 'creation_date':
-      oldestTweeter('creation_date');
-      break;
-  }
-</script>

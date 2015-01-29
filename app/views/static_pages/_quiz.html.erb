@@ -1,9 +1,9 @@
-<p class='question' id='<%= @question.id %>'><%= @question.body %></p>
+<p class='question'></p>
 <ul>
-  <li class='answer' id='<%= @first["{@question.parameter}"] %>'>
-    <%= @first.name %> (@<%= @first.username %>)
-  </li>
-  <li class='answer' id='<%= @second["{@question.parameter}"] %>'>
-    <%= @second.name %> (@<%= @second.username %>)
-  </li>
+  <li class='answer'></li>
+  <li class='answer'></li>
 </ul>
+
+<script type="text/javascript">
+	loadQuestion();
+</script>
