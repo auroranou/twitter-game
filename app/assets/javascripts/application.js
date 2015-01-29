@@ -68,12 +68,7 @@ function most() {
 		event.preventDefault();
 		if (click < 1) {
 			click ++;
-			if ( $(this).attr('id') > $(this).siblings('.answer').attr('id') ) {
-				createAnswer('correct');
-			}
-			else {
-				createAnswer('wrong');
-			}		
+			( $(this).attr('id') > $(this).siblings('.answer').attr('id') ) ? createAnswer('correct') : createAnswer('wrong');
 		}
 	});
 }
@@ -85,12 +80,7 @@ function oldest() {
 			click++
 			var date1 = new Date($(this).attr('id'));
 			var date2 = new Date($(this).siblings('.answer').attr('id'));
-			if(date1.getTime() > date2.getTime()){
-				createAnswer('correct');
-	    }
-	    else {
-				createAnswer('wrong');
-	    }
+			( date1.getTime() > date2.getTime() ) ? createAnswer('correct') : createAnswer('wrong');
 	  }
 	});
 }
