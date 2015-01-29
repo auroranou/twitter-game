@@ -12,7 +12,7 @@ Fork the repo and clone it to your local machine then run bundle install, some r
 
 Although the database gets seeded with some initial data, you wont be able to use the app until you incoporate your own Twitter API keys.
 To use this app, you must also get access tokens to utilize the Twitter API and adjust the keys in your <code>/config/application.yml</code> file
-It should look something like this:
+It should look something like this depending on which environment you want your keys:
     development:
       twitter_consumer_key: <your consumer key here>
       twitter_consumer_secret_key: <your consumer secret key here>
