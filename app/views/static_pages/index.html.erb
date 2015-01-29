@@ -13,8 +13,7 @@
       <li>
         <p><%= u.email %></p>
         <p>Score: <%= u.score %></p>
-        <div class="bar-wrap"><span class="bar-fill" style="width: <%= (u.score.to_f / 
-        @topscore.score) * 100 %>%;"></span></div>
+        <div class="bar-wrap"><span class="bar-fill" style="width: <%= (u.score.to_f / @topscore.score) * 100 %>%;"></span></div>
       </li>
     <% end %>
     </ul>
