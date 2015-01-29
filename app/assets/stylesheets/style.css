@@ -235,6 +235,7 @@ p {
 #startButton a {
   color: rgba(255, 255, 255, 0.5);
 	text-decoration: none;
+}
 
 .groupbox {
 	width: 500px;
@@ -250,7 +251,7 @@ p {
   	background-color: #595959;
   	text-align: center;
   	padding-top: 10px;
-  }
+ }
 
 .button:hover {
 	background: #666B6B;
@@ -302,4 +303,208 @@ table {
 .name {
 	font-family: 'Coda', cursive;
 	color: #ffffff;
+}
+
+/*LOGIN PAGE*/
+
+.fieldLogin{
+	margin-left: 100px;
+	width:400px;
+  background:#3399cc;
+  display:block;
+  margin:0 auto;
+  margin-top:50%;
+  padding:10px;
+  text-align:center;
+  text-decoration:none;
+  color:#fff;
+  cursor:pointer;
+  transition:background .3s;
+  -webkit-transition:background .3s;
+}
+
+.fieldLogin:hover{
+  background:#2288bb;
+}
+
+.fieldEmail{
+	margin-left: 100px;
+	width:400px;
+  background:#fafafa;
+  display:block;
+  margin:0 auto;
+  margin-top:-4%;
+  padding:10px;
+  text-align:center;
+  text-decoration:none;
+  color:#fff;
+  cursor:pointer;
+  transition:background .3s;
+  -webkit-transition:background .3s;
+}
+
+.fieldPassword{
+	margin-left: 100px;
+	width:400px;
+  background:#fafafa;
+  display:block;
+  margin:0 auto;
+  margin-top:0%;
+  padding:10px;
+  text-align:center;
+  text-decoration:none;
+  color:#fff;
+  cursor:pointer;
+  transition:background .3s;
+  -webkit-transition:background .3s;
+}
+
+#login{
+  width:400px;
+  margin:0 auto;
+  margin-top: 10px;
+  margin-bottom:2%;
+  transition:opacity 1s;
+  -webkit-transition:opacity 1s;
+}
+
+
+#login h1{
+  background:#3399cc;
+  padding:20px 0;
+  font-size:140%;
+  font-weight:300;
+  text-align:center;
+  color:#fff;
+}
+
+.check_box {
+	width:92%;
+  background:#fff;
+  margin-bottom:4%;
+  border:1px solid #ccc;
+  padding:4%;
+  font-family:'Open Sans',sans-serif;
+}
+
+#user_password{
+  width:92%;
+  background:#fff;
+  margin-bottom:4%;
+  border:1px solid #ccc;
+  padding:4%;
+  font-family:'Open Sans',sans-serif;
+  font-size:95%;
+  color:#555;
+}
+
+#user_email{
+	 width:92%;
+  background:#fff;
+  margin-bottom:4%;
+  border:1px solid #ccc;
+  padding:4%;
+  font-family:'Open Sans',sans-serif;
+  font-size:95%;
+  color:#555;
+}
+
+.fieldSubmit {
+	width:92%;
+  background:#2288bb;
+  margin-bottom:4%;
+  padding:6%;
+  font-family:'Open Sans',sans-serif;
+  font-size:95%;
+  color:#555;
+
+  width:400px;
+  margin:0 auto;
+  margin-top:0px;
+  margin-bottom:2%;
+  transition:opacity 1s;
+  -webkit-transition:opacity 1s;
+}
+
+.fieldSubmit input[type='submit']{
+	margin-left: 70px;
+	background-color: rgba(34,136,187,1);
+   width: 200px;
+   height: 30px;
+   padding: 0px;
+   display: inline;
+   font-size: 23px;
+   line-height: 32px;
+   text-indent: 12px;
+   border: solid 3399cc 5px;
+   color: rgba(255,252,255,1);
+   border: none;
+}
+
+/*SIGN UP PAGE*/
+
+#login h2{
+  background:#3399cc;
+  padding:20px 0;
+  font-size:140%;
+  font-weight:300;
+  text-align:center;
+  color:#fff;
+}
+
+.fieldSignup{
+	margin-left: 100px;
+	width:400px;
+  background:#3399cc;
+  display:block;
+  margin:0 auto;
+  margin-top:0%;
+  padding:10px;
+  text-align:center;
+  text-decoration:none;
+  color:#fff;
+  cursor:pointer;
+  transition:background .3s;
+  -webkit-transition:background .3s;
+}
+
+.fieldSignup input[type='password_field']{
+	margin-left: 70px;
+	background-color: rgba(34,136,187,1);
+   width: 200px;
+   height: 30px;
+   padding: 0px;
+   display: inline;
+   font-size: 23px;
+   line-height: 32px;
+   text-indent: 12px;
+   border: solid 3399cc 5px;
+   color: rgba(255,252,255,1);
+   border: none;
+}
+
+#user_email_confirmation {
+		 width:92%;
+  background:#fff;
+  margin-bottom:4%;
+  border:1px solid #ccc;
+  padding:4%;
+  font-family:'Open Sans',sans-serif;
+  font-size:95%;
+  color:#555;
+}
+
+.fieldSignup input[type='submit']{
+	margin-left: 70px;
+	background-color: rgba(34,136,187,1);
+   width: 200px;
+   height: 30px;
+   padding: 0px;
+   display: inline;
+   font-size: 23px;
+   line-height: 32px;
+   text-indent: 12px;
+   border: solid 3399cc 5px;
+   color: rgba(255,252,255,1);
+   border: none;
 }
