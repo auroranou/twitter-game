@@ -3,15 +3,7 @@
   <div id="quizModal" class="quizDialog"> 
     <div>
       <a href="#close" title="Close" class="close">X</a>
-      <p class='question' id='<%= @question.id %>'><%= @question.body %></p>
-      <ul>
-        <li class='answer' id='<%= @first["{@question.parameter}"] %>'>
-          <%= @first.name %> (@<%= @first.username %>)
-        </li>
-        <li class='answer' id='<%= @second["{@question.parameter}"] %>'>
-          <%= @second.name %> (@<%= @second.username %>)
-        </li>
-      </ul>
+      <%= render 'quiz' %>
       <button style="display:none" id="next">Next</button>
     </div>  
   </div>
