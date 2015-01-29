@@ -2,8 +2,6 @@
 
 Trendster is a fun Twitter quiz app built on Ruby on Rails! It utilizes the twitter Rest API to update its database.
 
-![Trendster ERDs](./public/twitterquiz_erds.png)
-
 To run this app:
 Fork the repo and clone it to your local machine then run bundle install in your command terminal:
     $ bundle install
@@ -41,6 +39,6 @@ Some of the technologies utilized:
 - JS/jQuery
 - HTML/CSS
 
-In the future, we want the app to incorporate more questions. Idealy we would want the quiz questions to incorporate hottest trends, live streaming feeds, and questions pertaining to timeframes. 
+In the future, we want the app to incorporate more questions. Ideally we would want the quiz questions to incorporate hottest trends, live streaming feeds, and questions pertaining to timeframes. 
 Enjoy!
 
