@@ -7,6 +7,7 @@ class StaticPagesController < ApplicationController
 		@first = @tweeters[0]
 		@second = @tweeters[1]
 		@users = User.all.sort_by{ |user| user.score }.reverse
+		@topscore = @users[0]
 		@answer = Answer.last
 		respond_to do |format|
 			format.html

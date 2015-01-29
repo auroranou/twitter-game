@@ -21,7 +21,8 @@
       <li>
         <p><%= u.email %></p>
         <p>Score: <%= u.score %></p>
-        <div class="bar-wrap"><span class="bar-fill" style="width: <%= u.score * 10 %>%;"></span></div>
+        <div class="bar-wrap"><span class="bar-fill" style="width: <%= (u.score / 
+        @topscore.score) * 100 %>%;"></span></div>
       </li>
     <% end %>
     </ul>

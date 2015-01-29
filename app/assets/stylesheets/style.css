@@ -4,6 +4,7 @@
   box-sizing: border-box;
 }*/
 
+@import url(http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz|Coda);
 
 body{
 	width: 100%;
@@ -116,23 +117,6 @@ nav ul li a:hover {
 
 .close:hover { background: #00d9ff; }
 
-
-
-/*.nav {
-	border: solid 1px;
-	width: 200px;
-	height: 200px;
-}
-
-nav ul {
-	list-style-type: none;
-	text-align: center;
-}
-
-nav ul li {
-	display: inline;
-}*/
-
 .scoreboardBox {
 	height: 600px;
 	width: 400px; 
@@ -147,6 +131,7 @@ nav ul li {
 	-webkit-border-radius: 12px;
 	-moz-border-radius: 7px; 
 	border-radius: 7px;
+	border: solid 1px;
 
 	/* gradients */
 	background: -webkit-gradient(linear, left top, left bottom, 
@@ -212,7 +197,73 @@ p {
   margin: auto;
 }
 
+.groupbox {
+	width: 500px;
+	height: 400px;
+	margin: auto;
+	border-radius: 3px;
+    box-shadow:
+        -4px  0px 0 0 #999, 
+         0px -4px 0 0 #999,
+         4px  0px 0 0 #999, 
+         0px  4px 0 0 #999,
+         0px  0px 0 7px #333;
+  	background-color: #595959;
+  	text-align: center;
+  	padding-top: 10px;
+  }
 
 
+.button:hover {
+	background: #666B6B;
+	background: -webkit-gradient(linear, left top, left bottom, from(#666B6B), to(#DCDEDE));
+	background: -moz-linear-gradient(top,  #f88e11,  #f06015);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#f88e11', endColorstr='#f06015');
+}
 
+.button:active {
+	color: #fcd3a5;
+	background: -webkit-gradient(linear, left top, left bottom, from(#f47a20), to(#faa51a));
+	background: -moz-linear-gradient(top,  #f47a20,  #faa51a);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#f47a20', endColorstr='#faa51a');
+}
+
+.button {
+	display: inline-block;
+	outline: none;
+	cursor: pointer;
+	text-align: center;
+	text-decoration: none;
+	font: 14px/100% Arial, Helvetica, sans-serif;
+	padding: .5em 2em .55em;
+	text-shadow: 0 1px 1px rgba(0,0,0,.3);
+	-webkit-border-radius: .5em; 
+	-moz-border-radius: .5em;
+	border-radius: .5em;
+	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	-moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	color: #DEE3E3;
+	border: solid 1px #555;
+	background: #6e6e6e;
+	background: -webkit-gradient(linear, left top, left bottom, from(#888), to(#575757));
+}	
+
+#joingroup {
+	margin-left: 50px;
+}
+
+#seescoreboard {
+	margin-left: 50px;
+}
+
+table {
+	margin: auto;
+}
+
+.name {
+	font-family: 'Coda', cursive;
+	color: #ffffff;
+
+}
 
