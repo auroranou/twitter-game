@@ -11,4 +11,16 @@ class User < ActiveRecord::Base
   def score
   	self.answers.select{ |answer| answer.is_correct? == true }.count
   end
+
+  def self.all_user_scores
+    users = User.all.sort_by{ |user| user.score }.reverse
+    a = {}
+    users.each do |u|
+      a[u]={
+        email: u.email,
+        score: u.score
+      }
+    end
+    return a
+  end
 end
