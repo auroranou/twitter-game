@@ -103,6 +103,36 @@ nav ul li a:hover {
 	text-align: center;
 } 
 
+.question {
+  padding-top: 18px;
+  font-weight: bold;
+}
+
+.answer {
+  padding: 10px;
+  color: #534f4e;
+  font-size: 18px;
+}
+
+.answer:hover {
+  font-weight: bold;
+}
+
+#next {
+  background-color: #525252;
+  text-transform: uppercase;
+  padding: 10px;
+  font-size: 14px;
+  margin: auto;
+  border: none;
+  border-radius: 5px;
+}
+
+#next:hover {
+  background-color: rgba(0, 217, 255, 0.5);
+  color: #fff;
+}
+
 .close {
 	background: #606061;
 	color: #FFFFFF;
@@ -218,11 +248,11 @@ p {
 
 #startButton{
 	background-color: #525252;
-  font-family: "Arial";
+  /*font-family: "Arial";*/
   text-transform: uppercase;
   font-size: 20px;
 	padding: 18px;
-	width: 250px;
+	width: 398px;
 	margin: auto;
 	border: none;
 	border-radius: 5px;
