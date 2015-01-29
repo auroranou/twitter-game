@@ -7,6 +7,11 @@ class StaticPagesController < ApplicationController
 		@first = @random_question[:first]
 		@second = @random_question[:second]
 		@users = User.all.sort_by{ |user| user.score }.reverse
+<<<<<<< HEAD
+=======
+		@topscore = @users[0]
+		@answer = Answer.last
+>>>>>>> 9c2cfda566534596e5211a89b31dee45d289b693
 		respond_to do |format|
 			format.html
 			format.json {render json: @random_question}

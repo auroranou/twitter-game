@@ -1,11 +1,8 @@
 <div>
 	<%= form_for @group do |f| %>
-	<p>
-		<%= f.label :name %>
-		<%= f.text_field :name %>
-	</p>
-	<p>
-		<%= f.submit %>
-	</p>
+	<p>	<%= f.label :name %></p>
+	<p>	<%= f.text_field :name %></p>
+	<br>
+	<%= f.submit :class => 'button' %> 
 	<% end %>
 </div>

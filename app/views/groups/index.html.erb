@@ -1,10 +1,21 @@
-<h2>Groups</h2>
 
-<% @groups.each do |g| %>
-	<%= g.name %> | 
-	<%= link_to 'Join group', '/groups/' + g.id.to_s + '/join_group' %><br>
-	<%= link_to 'See scoreboard', group_path(g) %><br>
-<% end %>
+<div class = "groupbox">
+	
 
-<h3>New Group</h3>
-<%= render 'form' %>
+	<h2>Groups</h2>
+	<!-- <div class = "groupboxtext"> -->
+	<table>
+	<% @groups.each do |g| %>
+		<tr>
+			<th><%= g.name %></th> 
+			<th><%= link_to 'Join group', '/groups/' + g.id.to_s + '/join_group', :class => "button", :id => "joingroup" %></th>
+			<th><%= link_to 'See scoreboard', group_path(g), :class => "button", :id => "seescoreboard" %></th>
+		</tr>	
+	<% end %>
+	</table>
+		<h3>New Group</h3>
+		<%= render 'form' %>
+	
+	<!-- </div> -->
+
+</div>
