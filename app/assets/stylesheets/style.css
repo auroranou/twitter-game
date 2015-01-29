@@ -29,10 +29,10 @@ ul {
 }
 
 nav {
-  max-width: 2000px;
+  max-width: 100%;
   mask-image: linear-gradient(90deg, rgba(255, 255, 255, 0) 50%, #ffffff 100%, #ffffff 75%, rgba(255, 255, 255, 0) 100%);
   margin: 0 auto;
-  padding: 60px 0;
+  padding: 25px 0;
 }
 
 nav ul {
@@ -62,7 +62,7 @@ nav ul li a:hover {
 }
 
 .container {
-	flex-direction: row;
+	flex-direction: column;
 	display: flex;
 	justify-content:center;
 }
@@ -120,7 +120,9 @@ nav ul li a:hover {
 	box-shadow: 1px 1px 3px #000;
 }
 
-.close:hover { background: #00d9ff; }
+.close:hover { 
+	background: #00d9ff; 
+}
 
 .scoreboardBox {
 	height: auto;
@@ -129,16 +131,13 @@ nav ul li a:hover {
 	background-color: white;
 	margin-top: 0px;
 	margin-bottom: 40px; 
-
 	/* outer shadows  (note the rgba is red, green, blue, alpha) */
 	-webkit-box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.4); 
 	-moz-box-shadow: 0px 1px 6px rgba(23, 69, 88, .5);
-
 	/* rounded corners */
 	-webkit-border-radius: 12px;
 	-moz-border-radius: 7px; 
 	border-radius: 7px;
-
 	/* gradients */
 	background: -webkit-gradient(linear, left top, left bottom, 
 	color-stop(0%, white), color-stop(15%, white), color-stop(100%, #C1C6C9)); 
@@ -164,6 +163,7 @@ nav ul li a:hover {
     width: 0;
   }
 }
+
 .bar-graph {
   list-style: none;
   margin: 50px 0px auto;
@@ -203,17 +203,33 @@ p {
   margin: auto;
 }
 
-.scoreboard{
-	margin-top: 40px;
+.scoreboardBox{
+	margin: auto;
+	margin-top: 50px;
 }
+
 /*Start button*/
 .startquiz{
 	text-align: center;
 }
-.startButton{
-	border: 2px solid black;
+
+#startButton{
 	background-color: #525252;
-	text-decoration: none;
-	padding: 10px;
+  font-family: "Arial";
+  text-transform: uppercase;
+  font-size: 20px;
+	padding: 18px;
+	width: 250px;
+	margin: auto;
+	border: none;
+	border-radius: 5px;
 }
 
+#startButton:hover {
+	background-color: rgba(0, 217, 255, 0.5);
+}
+
+#startButton a {
+  color: rgba(255, 255, 255, 0.5);
+	text-decoration: none;
+}
