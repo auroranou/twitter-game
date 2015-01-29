@@ -1,28 +1,44 @@
-== README
+== Trendster
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Trendster is a fun twitter quiz app built on Ruby on Rails! It utilizes the twitter Rest API to update its database.
 
-Things you may want to cover:
+To run this app:
+Fork the repo and clone it to your local machine then run bundle install in your command terminal:
+    $ bundle install
+    $ rake db:create
+    $ rake db:migrate
+    $ rakd db:seed
 
-* Ruby version
+Although the database gets seeded with some initial data, you wont be able to use the app until you incoporate your own Twitter API keys.
+To use this app, you must also get access tokens to utilize the Twitter API and adjust the keys in your <code>/config/application.yml</code> file
+It should look something like this:
+    development:
+      twitter_consumer_key: <your consumer key here>
+      twitter_consumer_secret_key: <your consumer secret key here>
+      twitter_access_token: <your access token here>
+      twitter_secret_access_token: <your secret access token here>
 
-* System dependencies
+After you change out the keys you should be able to go into the rails console and run some commands to update the database:
+    $ rails c
+    > tweeters = Tweeter.all
+    > tweeters.each do |tweeter|
+    > tweeter.update_attributes
+    > end
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+You should now have a fully seeded database! Fire up the rails server and play!
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Some of the technologies utilized:
+- Rails
+  - figaro gem
+  - twitter gem
+  - devise gem
+- Postgresql
+- Twitter Rest API
+- Heroku
+- JS/jQuery
+- HTML/CSS
+
+In the future, we want the app to incorporate more questions. Idealy we would want the quiz questions to incorporate hottest trends, live streaming feeds, and questions pertaining to timeframes. 
+Enjoy!
+
