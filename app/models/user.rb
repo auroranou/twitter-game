@@ -14,9 +14,9 @@ class User < ActiveRecord::Base
 
   def self.all_user_scores
     users = User.all.sort_by{ |user| user.score }.reverse
-    a = {}
+    a = []
     users.each do |u|
-      a[u]={
+      a << {
         email: u.email,
         score: u.score
       }

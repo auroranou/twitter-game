@@ -3,5 +3,6 @@ class StaticPagesController < ApplicationController
 
 	def index
 		@users = User.all.sort_by{ |user| user.score }.reverse
+		@topscore = @users[0]
 	end
 end

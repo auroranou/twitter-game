@@ -135,3 +135,23 @@ function next() {
 		loadQuestion();
 	});
 }
+
+function updateScoreboard(){
+	$(".close").on("click", function(){
+		$.ajax({
+			type: "GET",
+			dataType: "json",
+			url: window.location.origin + "/users.json",
+			success: function(response){
+				$(".scoreboard").children().remove()
+				for(var i = 0; i < response.length; i++){
+					$(".scoreboard").append("<li><p>" + response[i]["email"]+ "</p><p>Score: " + response[i]["score"] + "</p><div class='bar-wrap'><span class='bar-fill' style='width: " + (response[i]["score"]/response[0]["score"]) * 100 + "%;'></span></div></li>");
+				}
+			},
+			error: function(response){
+				console.log("error");
+			}
+		});
+	});
+}
+
