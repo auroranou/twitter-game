@@ -1,16 +1,15 @@
 <h2><%= @group.name %></h2>
 
-<table class='scoreboard'>
-  <tr>
-    <th>User</th>
-    <th>Score</th>
-  </tr>
-  <% @group_users.each do |u| %>
-    <tr>
-      <td><%= u.email %></td>
-      <td><%= u.score %></td>
-    </tr>
+<div class='scoreboardBox'>
+  <ul class='scoreboard'>
+    <% @group_users.each do |u| %>
+    <li>
+      <p><%= u.email %></p>
+      <p>Score: <%= u.score %></p>
+      <div class="bar-wrap"><span class="bar-fill" style="width: <%= (u.score.to_f / @topscore.score) * 100 %>%;"></span></div>
+    </li>
   <% end %>
-</table>
+  </ul>
+</div>
 
 <%= link_to 'Back', groups_path %>

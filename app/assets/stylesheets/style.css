@@ -20,6 +20,11 @@ header {
 	width: 100%;
 }
 
+h1, h2 {
+  text-align: center;
+  text-transform: uppercase;
+}
+
 #logo {
 	margin: auto;
 	display: block;
@@ -239,6 +244,7 @@ p {
 .scoreboardBox{
 	margin: auto;
 	margin-top: 50px;
+  color: #534f4e;
 }
 
 /*Start button*/
