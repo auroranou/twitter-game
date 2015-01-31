@@ -8,7 +8,6 @@
 </head>
 <body>
 	<header>
-		<img id ="logo" src="http://i.imgur.com/5rxR8cl.png" title="source: imgur.com" />
 		<% if current_user %>
 			<nav>
 				<ul>
@@ -17,13 +16,20 @@
 					<li><%= link_to 'Sign out', destroy_user_session_path, method: :delete %></li>
 				</ul>
 			</nav>
+		<% else %>
+			<nav>
+				<ul>
+					<li><%= link_to 'Home', root_path %></li>
+					<li><%= link_to 'Log in', new_user_session_path %></li>
+					<li><%= link_to 'Sign up', new_user_registration_path %></li>
+				</ul>
+			</nav>
 		<% end %>
 	</header>
 
 <%= yield %>
-
 	<footer>
-	  <b>©2015: Aurora, Akintola, Andy, Alison</b>
+		View the code on <a href=''>GitHub</a>
 	</footer>
 </body>
 </html>
