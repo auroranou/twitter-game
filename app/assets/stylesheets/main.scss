@@ -18,12 +18,20 @@
 	color: #FFF;
 }
 
+@mixin partial {
+	width: 50%;
+	margin: auto;
+	border: $border;
+	border-radius: 5px;
+}
+
 /*variables*/
 $montserrat: 'Montserrat', sans-serif;
 $open-sans: 'Open Sans';
 $pink: #FFD9EA;
 $pink-d: darken($pink, 15%);
 $gray: #0e0e0e;
+$border: 2px solid #FFF;
 
 /*styles*/
 * { 
@@ -63,10 +71,13 @@ a {
 		color: $pink-d;
 		border-bottom: 10px solid $pink-d;
 	}
+	&:active {
+		text-decoration: none;
+	}
 }
 
 header {
-	border-bottom: 2px solid #FFF;
+	border-bottom: $border;
 	h1 {
 		display: inline;
 	}
@@ -81,27 +92,6 @@ header {
 			text-transform: uppercase;
 		}
 	}
-}
-
-button {
-	padding: 0 25px;
-	margin: auto;
-	border: 2px solid #fff;
-	border-radius: 5px;
-	font-family: $open-sans;
-	font-weight: 800;
-	font-size: 50px;
-	text-transform: uppercase;
-	background-color: inherit;
-	color: #fff;
-	&:hover {
-		background-color: $pink-d;
-	}
-}
-
-.quiz {
-	margin: auto;
-	border-radius: 5px;
 }
 
 footer {

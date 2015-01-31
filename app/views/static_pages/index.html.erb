@@ -6,3 +6,11 @@
 <% if current_user %>
   <p class='user' id='<%= current_user.id %>'></p>
 <% end %>
+
+<script type="text/javascript">
+$('#start').on('click', function(event){
+	event.preventDefault();
+	$(this).hide();
+	$('.quiz').show();
+})
+</script>

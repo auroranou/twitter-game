@@ -1,4 +1,4 @@
-var click;
+var click = 0;
 var q;
 
 var QuestionView = function(model){
@@ -26,6 +26,7 @@ QuestionView.prototype = {
 		$('.question').html(this.questionBody);
 		$('.answer:first-child').html(this.firstName + ' (@' + this.firstUserName + ')');
 		$('.answer:last-child').html(this.secondName + ' (@' + this.secondUserName + ')');
+		click = 0;
 		callback(this.questionParameter);
 	},
 	checkAnswer: function(questionParameter){
@@ -33,35 +34,58 @@ QuestionView.prototype = {
 		$('.answer').unbind('click');
 		$('.answer').on('click', function(event){
 			event.preventDefault();
-			click++
-			switch(questionParameter) {
-				case 'followers_count':
-					(self.firstFollowers > self.secondFollowers ? self.firstName : self.secondName);
-					($(this).html().split(" (@")[0] == self.firstName ? self.createAnswer("right") : self.createAnswer("wrong")); 
-					$('.answer:first-child').append(' has ' + self.firstFollowers + ' followers');
-					$('.answer:last-child').append(' has ' + self.secondFollowers + ' followers');
-					break;
-				case 'friends_count':
-					(self.firstFriends > self.secondFriends ? self.firstName : self.secondName);
-					($(this).html().split(" (@")[0] == self.firstName ? self.createAnswer("right") : self.createAnswer("wrong"));
-					$('.answer:first-child').append(' follows ' + self.firstFriends + ' people');
-					$('.answer:last-child').append(' follows ' + self.secondFriends + ' people');
-					break;
-				case 'statuses_count':
-					(self.firstStatuses > self.secondStatuses ? self.firstName : self.secondName);
-					($(this).html().split(" (@")[0] == self.firstName ? self.createAnswer("right") : self.createAnswer("wrong"));
-					$('.answer:first-child').append(' has ' + self.firstFriends + ' tweets');
-					$('.answer:last-child').append(' has ' + self.secondFriends + ' tweets');
-					break;
-				case 'creation_date':
-					(Date.parse(self.firstCreationDate) > Date.parse(self.secondCreationDate) ? self.firstName : self.secondName);
-					($(this).html().split(" (@")[0] == self.firstName ? self.createAnswer("right") : self.createAnswer("wrong"));
-					$('.answer:first-child').append(' has been on Twitter since ' + self.firstCreationDate.split(' ')[0]);
-					$('.answer:last-child').append(' has been on Twitter since ' + self.secondCreationDate.split(' ')[0]);
-					break;
-				default: 
-					console.log('error in checkAnswer!');
-			}
+			if(click < 1){
+				click++
+				switch(questionParameter) {
+					case 'followers_count':
+						if(self.firstFollowers > self.secondFollowers){
+							var rightAnswer = self.firstName;
+							console.log($(this).html().split(' (@')[0])
+						}
+						else {
+							var rightAnswer = self.secondName;
+						}
+						($(this).html().split(' (@')[0] == rightAnswer ? self.createAnswer("right") : self.createAnswer("wrong")); 
+						$('.answer:first-child').append(' has ' + self.firstFollowers + ' followers');
+						$('.answer:last-child').append(' has ' + self.secondFollowers + ' followers');
+						break;
+					case 'friends_count':
+						if(self.firstFriends > self.secondFriends){
+							var rightAnswer = self.firstName;
+						}
+						else {
+							var rightAnswer = self.secondName;
+						}
+						($(this).html().split(" (@")[0] == rightAnswer ? self.createAnswer("right") : self.createAnswer("wrong"));
+						$('.answer:first-child').append(' follows ' + self.firstFriends + ' people');
+						$('.answer:last-child').append(' follows ' + self.secondFriends + ' people');
+						break;
+					case 'statuses_count':
+						if(self.firstStatuses > self.secondStatuses){
+							var rightAnswer = self.firstName;
+						}
+						else {
+							var rightAnswer = self.secondName;
+						}
+						($(this).html().split(" (@")[0] == rightAnswer ? self.createAnswer("right") : self.createAnswer("wrong"));
+						$('.answer:first-child').append(' has ' + self.firstFriends + ' tweets');
+						$('.answer:last-child').append(' has ' + self.secondFriends + ' tweets');
+						break;
+					case 'creation_date':
+						if(Date.parse(self.firstCreationDate)  > Date.parse(self.secondCreationDate)){
+							var rightAnswer = self.firstName
+						}
+						else {
+							var rightAnswer = self.secondName
+						}
+						($(this).html().split(" (@")[0] == self.firstName ? self.createAnswer("right") : self.createAnswer("wrong"));
+						$('.answer:first-child').append(' has been on Twitter since ' + self.firstCreationDate.split(' ')[0]);
+						$('.answer:last-child').append(' has been on Twitter since ' + self.secondCreationDate.split(' ')[0]);
+						break;
+					default: 
+						console.log('error in checkAnswer!');
+				}
+			}	
 		});
 	},
 	createAnswer: function(result){
@@ -76,6 +100,7 @@ QuestionView.prototype = {
 		else {
 			data["is_correct?"] = false
 		}
+		console.log("right before ajax call")
 		$.ajax({
 			type: "POST",
 			dataType: "json",

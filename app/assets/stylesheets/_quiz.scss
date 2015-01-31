@@ -1,0 +1,21 @@
+@import 'main.scss';
+
+.quiz {
+	@include partial;
+}
+
+button {
+	padding: 0 25px;
+	margin: auto;
+	border: $border;
+	border-radius: 5px;
+	font-family: $open-sans;
+	font-weight: 800;
+	font-size: 50px;
+	text-transform: uppercase;
+	background-color: inherit;
+	color: #fff;
+	&:hover {
+		background-color: $pink-d;
+	}
+}
