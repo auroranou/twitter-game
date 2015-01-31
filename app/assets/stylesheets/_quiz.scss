@@ -1,12 +1,10 @@
 @import 'main.scss';
 
 /*start button*/
-button {
+#start {
 	@include buttons;
 	padding: 0 25px;
 	font-size: 50px;
-	background-color: inherit;
-	color: #fff;
 	&:hover {
 		background-color: $pink-d;
 	}
@@ -35,6 +33,5 @@ button {
 		@include buttons;
 		padding: 0 10px;
 		font-size: 20px;
-		background-color: $pink-d;
 	}
 }

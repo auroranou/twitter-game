@@ -24,8 +24,12 @@ input[type='password'] {
 input[type='submit'] {
 	@include buttons;
 	margin: 0 auto 20px auto;
-	padding: 6px 10px;
-	font-size: 14px;
-	background-color: $pink-d;
-	color: #FFF;
+	padding: 0px 10px;
+	font-size: 20px;
 }
+
+	#next {
+		@include buttons;
+		padding: 0 10px;
+		font-size: 20px;
+	}
