@@ -1,6 +1,8 @@
-<button id='start'>Start!</button>
-<%= render 'quiz' %>
-  
+<div class='container'>
+  <button id='start'>Start!</button>
+  <%= render 'quiz' %>
+</div>
+
 <% if current_user %>
   <p class='user' id='<%= current_user.id %>'></p>
 <% end %>

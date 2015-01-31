@@ -9,5 +9,4 @@ Rails.application.routes.draw do
   get '/groups/:id/join_group', to: 'groups#add_user'
   post '/questions/:id/create_right_answer', to: 'questions#create_right_answer'
   post '/questions/:id/create_wrong_answer', to: 'questions#create_wrong_answer'
-
 end
