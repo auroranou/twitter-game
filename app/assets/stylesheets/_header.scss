@@ -1,0 +1,23 @@
+@import 'main.scss';
+
+header {
+	border-bottom: $border;
+	h1 {
+		display: inline;
+	}
+	nav {
+		display: inline;
+		ul {
+			display: inherit;
+		}
+		li {
+			@include large-text;
+			display: inherit;
+			padding: 0 20px;
+			font-size: 20px;
+			&:hover {
+				border-bottom: 8px solid $pink-d;
+			}
+		}
+	}
+}

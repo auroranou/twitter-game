@@ -1,0 +1,22 @@
+@import 'main.scss';
+
+h1 {
+	@include large-text;
+	font-size: 50px;
+	color: #FFF;
+}
+
+h2 {
+	@include large-text;
+	color: #FFF;
+}
+
+a {
+	text-decoration: none;
+	text-transform: uppercase;
+	color: #FFF;
+	&:hover {
+		color: $pink-d;
+		border-bottom: 2px solid $pink-d;
+	}
+}

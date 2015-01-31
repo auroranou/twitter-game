@@ -1,21 +1,38 @@
 @import 'main.scss';
 
-.quiz {
-	@include partial;
-}
-
+/*start button*/
 button {
+	@include buttons;
 	padding: 0 25px;
-	margin: auto;
-	border: $border;
-	border-radius: 5px;
-	font-family: $open-sans;
-	font-weight: 800;
 	font-size: 50px;
-	text-transform: uppercase;
 	background-color: inherit;
 	color: #fff;
 	&:hover {
 		background-color: $pink-d;
 	}
 }
+
+.quiz {
+	@include partial;
+	text-align: center;
+	background-color: $pink-l;
+	.question {
+		text-transform: uppercase;
+		font-family: $open-sans;
+		font-weight: 800;
+		font-size: 20px;
+	}
+	ul {
+		padding: 0;
+		.answer {
+			padding: 5px 0;
+			&:hover {
+				text-decoration: underline;	
+			}
+		}
+	}
+	#next {
+		@include buttons;
+	}
+}
+
