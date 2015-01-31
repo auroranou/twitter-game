@@ -1,0 +1,31 @@
+@import 'main.scss';
+
+form {
+	@include partial;
+	height: 60vh;
+	text-align: center;
+	background-color: $pink-l;
+	.field {
+		padding: 10px 0;
+	}
+	.actions {
+		padding: 10px 0;
+	}
+	a {
+		color: $pink-d;
+	}
+}
+
+input[type='email'],
+input[type='password'] {
+	width: 200px;
+}
+
+input[type='submit'] {
+	@include buttons;
+	margin: 0 auto 20px auto;
+	padding: 6px 10px;
+	font-size: 14px;
+	background-color: $pink-d;
+	color: #FFF;
+}
