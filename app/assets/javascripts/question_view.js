@@ -89,40 +89,45 @@ QuestionView.prototype = {
 		});
 	},
 	createAnswer: function(result){
-		var userId = $('.user').attr('id')
-		var data = {
-			'user_id': userId,
-			'question_id': this.questionId
-		}
-		if (result == 'right') {
-			data["is_correct?"] = true 
+		if ($('.user').attr('id') != undefined) {
+			console.log("right before ajax call")
+			console.log(data)
+			var userId = $('.user').attr('id')
+			var data = {
+				'user_id': userId,
+				'question_id': this.questionId
+			}
+			if (result == 'right') data["is_correct?"] = true;
+			else data["is_correct?"] = false;
+			$.ajax({
+				type: "POST",
+				dataType: "json",
+				data: data,
+				url: window.location.origin + "/questions/" + this.questionId + "/create_" + result + "_answer",
+				success: function(response, status, jqXHR) {
+					console.log(response);
+					this.nextQuestion();
+				},
+				error: function(response){
+					console.log("ERROR")
+				}
+			});
 		}
 		else {
-			data["is_correct?"] = false
+			this.nextQuestion();
 		}
-		console.log("right before ajax call")
-		$.ajax({
-			type: "POST",
-			dataType: "json",
-			data: data,
-			url: window.location.origin + "/questions/" + this.questionId + "/create_" + result + "_answer",
-			success: function(response, status, jqXHR) {
-				console.log(response);
-				$('#next').show();
-				$('#next').unbind('click');
-				$('#next').on('click', function(){
-					$(this).hide();
-					q = new Question();
-					q.load(function(response){
-						newView = new QuestionView(response);
-					});
-				});
-			},
-			error: function(response){
-				console.log("ERROR")
-			}
-		});
 		$('.question').html(result + '!');
+	},
+	nextQuestion: function(){
+		$('#next').show();
+		$('#next').unbind('click');
+		$('#next').on('click', function(){
+			$(this).hide();
+			q = new Question();
+			q.load(function(response){
+				newView = new QuestionView(response);
+			});
+		});
 	}
 }
 

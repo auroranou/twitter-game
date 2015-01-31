@@ -14,7 +14,6 @@ button {
 
 .quiz {
 	@include partial;
-	height: 35vh;
 	text-align: center;
 	background-color: $pink-l;
 	.question {
