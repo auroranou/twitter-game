@@ -1,5 +1,6 @@
-var click = 0;
+var click;
 var q;
+var newView;
 
 var QuestionView = function(model){
 	this.model = model;
@@ -38,35 +39,22 @@ QuestionView.prototype = {
 				click++
 				switch(questionParameter) {
 					case 'followers_count':
-						if(self.firstFollowers > self.secondFollowers){
-							var rightAnswer = self.firstName;
-							console.log($(this).html().split(' (@')[0])
-						}
-						else {
-							var rightAnswer = self.secondName;
-						}
+						if(self.firstFollowers > self.secondFollowers) var rightAnswer = self.firstName;
+						else var rightAnswer = self.secondName;
 						($(this).html().split(' (@')[0] == rightAnswer ? self.createAnswer("right") : self.createAnswer("wrong")); 
 						$('.answer:first-child').append(' has ' + self.firstFollowers + ' followers');
 						$('.answer:last-child').append(' has ' + self.secondFollowers + ' followers');
 						break;
 					case 'friends_count':
-						if(self.firstFriends > self.secondFriends){
-							var rightAnswer = self.firstName;
-						}
-						else {
-							var rightAnswer = self.secondName;
-						}
+						if(self.firstFriends > self.secondFriends) var rightAnswer = self.firstName;
+						else var rightAnswer = self.secondName;
 						($(this).html().split(" (@")[0] == rightAnswer ? self.createAnswer("right") : self.createAnswer("wrong"));
 						$('.answer:first-child').append(' follows ' + self.firstFriends + ' people');
 						$('.answer:last-child').append(' follows ' + self.secondFriends + ' people');
 						break;
 					case 'statuses_count':
-						if(self.firstStatuses > self.secondStatuses){
-							var rightAnswer = self.firstName;
-						}
-						else {
-							var rightAnswer = self.secondName;
-						}
+						if(self.firstStatuses > self.secondStatuses) var rightAnswer = self.firstName;
+						else var rightAnswer = self.secondName;
 						($(this).html().split(" (@")[0] == rightAnswer ? self.createAnswer("right") : self.createAnswer("wrong"));
 						$('.answer:first-child').append(' has ' + self.firstFriends + ' tweets');
 						$('.answer:last-child').append(' has ' + self.secondFriends + ' tweets');
@@ -132,5 +120,5 @@ QuestionView.prototype = {
 
 q = new Question();
 q.load(function(response){
-	var newView = new QuestionView(response);
+	newView = new QuestionView(response);
 });
