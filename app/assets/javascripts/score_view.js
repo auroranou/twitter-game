@@ -1,3 +1,11 @@
 var ScoreView = function(model){
-	console.log(model);
 }
+
+ScoreView.prototype = {
+	renderScoreBoard: function(){
+		if ($('.user').attr('id') != undefined) {}
+	}
+}
+
+s = new Score();
+s.load();

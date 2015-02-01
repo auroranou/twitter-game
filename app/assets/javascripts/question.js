@@ -1,5 +1,4 @@
-var Question = function(){
-}
+var Question = function(){}
 
 Question.prototype = {
 	load: function(callback){

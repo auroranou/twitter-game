@@ -18,6 +18,10 @@ class GroupsController < ApplicationController
 	def show
 		@group_users = @group.users.sort_by{ |user| user.score }.reverse
 		@topscore = @group_users[0]
+		respond_to do |format|
+			format.html
+			format.json {render json: @group_users}
+		end
 	end
 
 	def new
@@ -33,14 +37,6 @@ class GroupsController < ApplicationController
 			render :new
 		end
 	end
-
-	# def create_groups_user
-	# 	if condition
-	# 		@groups_user = GroupsUser.new(user_id: current_user.id, group_id: params[:id], is_owner?: false)
-	# 	else
-	# 		@groups_user = GroupsUser.new(user_id: current_user.id, group_id: params[:id], is_owner?: true)
-	# 	end
-	# end
 
 	def edit
 	end

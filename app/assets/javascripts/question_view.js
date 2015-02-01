@@ -1,6 +1,9 @@
 var click;
-var q;
-var newView;
+
+var q = new Question();
+q.load(function(response){
+	var newView = new QuestionView(response);
+});
 
 var QuestionView = function(model){
 	this.model = model;
@@ -23,7 +26,7 @@ var QuestionView = function(model){
 }
 
 QuestionView.prototype = {
-	renderQuestion: function(callback){
+	renderQuestion: function (callback) {
 		$('.question').html(this.questionBody);
 		$('.answer:first-child').html(this.firstName + ' (@' + this.firstUserName + ')');
 		$('.answer:last-child').html(this.secondName + ' (@' + this.secondUserName + ')');
@@ -117,8 +120,3 @@ QuestionView.prototype = {
 		});
 	}
 }
-
-q = new Question();
-q.load(function(response){
-	newView = new QuestionView(response);
-});
