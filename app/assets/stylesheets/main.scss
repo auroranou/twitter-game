@@ -4,11 +4,10 @@
 
 /*variables*/
 $montserrat: 'Montserrat', sans-serif;
-$open-sans: 'Open Sans';
+$open-sans: 'Open Sans', sans-serif;
 $pink: #FFD9EA;
 $pink-d: darken($pink, 15%);
 $pink-l: lighten($pink, 5%);
-$gray: #0e0e0e;
 $border: 2px solid #FFF;
 
 /*mixins*/
@@ -57,6 +56,7 @@ body {
 .container {
 	display: flex;
 	flex-direction: column;
+	justify-content: center;
 	height: 80vh;
 }
 

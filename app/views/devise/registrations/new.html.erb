@@ -1,9 +1,6 @@
 <div class='container'>
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-    
-    <div class='errors' style='display:none'>
-      <%= devise_error_messages! %>
-    </div>
+    <%= devise_error_messages! %>
 
     <h2>Welcome!</h2>
 
@@ -32,7 +29,3 @@
 
   <%#= render "devise/shared/links" %>
 </div>
-
-<script type="text/javascript">
-  
-</script>

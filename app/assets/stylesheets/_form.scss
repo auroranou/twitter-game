@@ -2,14 +2,13 @@
 
 form {
 	@include partial;
-	height: 60vh;
 	text-align: center;
 	background-color: $pink-l;
 	.field {
-		padding: 10px 0;
+		/*padding: 10px 0;*/
 	}
 	.actions {
-		padding: 10px 0;
+		/*padding: 10px 0;*/
 	}
 	a {
 		color: $pink-d;
@@ -19,17 +18,12 @@ form {
 input[type='email'],
 input[type='password'] {
 	width: 200px;
+	margin: 0 0 10px 0;
 }
 
 input[type='submit'] {
 	@include buttons;
-	margin: 0 auto 20px auto;
+	margin: 20px auto;
 	padding: 0px 10px;
 	font-size: 20px;
 }
-
-	#next {
-		@include buttons;
-		padding: 0 10px;
-		font-size: 20px;
-	}
