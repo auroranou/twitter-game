@@ -89,9 +89,8 @@ QuestionView.prototype = {
 		});
 	},
 	createAnswer: function(result){
+		var self = this;
 		if ($('.user').attr('id') != undefined) {
-			console.log("right before ajax call")
-			console.log(data)
 			var userId = $('.user').attr('id')
 			var data = {
 				'user_id': userId,
@@ -106,7 +105,7 @@ QuestionView.prototype = {
 				url: window.location.origin + "/questions/" + this.questionId + "/create_" + result + "_answer",
 				success: function(response, status, jqXHR) {
 					console.log(response);
-					this.nextQuestion();
+					self.nextQuestion();
 				},
 				error: function(response){
 					console.log("ERROR")
