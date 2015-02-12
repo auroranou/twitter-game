@@ -12,5 +12,11 @@ $('#start').on('click', function(event){
 	event.preventDefault();
 	$(this).hide();
 	$('.quiz').show();
+});
+
+$('#quit').on('click', function(event){
+	event.preventDefault();
+	$('#start').show();
+	$('.quiz').hide();
 })
 </script>

@@ -11,6 +11,11 @@
 	@include partial;
 	text-align: center;
 	background-color: $pink-l;
+	#quit {
+		color: $pink-d;
+		display: block;
+		float: right;
+	}
 	.question {
 		text-transform: uppercase;
 		font-family: $open-sans;
