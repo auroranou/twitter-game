@@ -1,6 +1,7 @@
-<h2><%= @group.name %></h2>
+
 
 <div class='scoreboardBox'>
+	<h2><%= @group.name %></h2>
   <ul class='scoreboard'>
     <% @group_users.each do |u| %>
     <li>
@@ -9,7 +10,8 @@
       <div class="bar-wrap"><span class="bar-fill" style="width: <%= (u.score.to_f / @topscore.score) * 100 %>%;"></span></div>
     </li>
   <% end %>
-  </ul>
-</div>
+  <li><%= link_to 'Back', groups_path%></li>
 
-<%= link_to 'Back', groups_path %>
+  </ul>
+
+</div>

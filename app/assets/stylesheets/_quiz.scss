@@ -10,9 +10,9 @@
 .quiz {
 	@include partial;
 	text-align: center;
-	background-color: $pink-l;
+	background-color: $theme_color-l;
 	#quit {
-		color: $pink-d;
+		color: $theme_color-d;
 		display: block;
 		float: right;
 	}

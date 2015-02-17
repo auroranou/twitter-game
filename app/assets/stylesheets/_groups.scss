@@ -1,0 +1,19 @@
+@import 'main.scss';
+
+div.groupbox{
+	margin: auto;
+	text-align: center;
+	table{
+		width:50%;
+		margin:auto;
+		border: 2px solid #fff;
+		border-radius: 20px;
+		background-color: $theme_color-l;
+		.line{
+			color: #fff
+		}
+	}
+	form {
+		border-radius: 20px;
+	}
+}

@@ -1,0 +1,66 @@
+@import 'main.scss';
+@keyframes bar-fill{
+	0%{
+		width:0;
+	}
+}
+@-webkit-keyframes bar-fill {
+  0% {
+    width: 0;
+  }
+}
+@-moz-keyframes bar-fill {
+  0% {
+    width: 0;
+  }
+}
+@-o-keyframes bar-fill {
+  0% {
+    width: 0;
+  }
+}
+
+.bar-wrap {
+  -moz-border-radius: 10px 10px 10px 10px;
+  -webkit-border-radius: 10px 10px 10px 10px;
+  -ms-border-radius: 10px 10px 10px 10px;
+  border-radius: 10px 10px 10px 10px;
+  background-color: #BDB6BF;
+  border: 1px solid $theme_color-l;
+  margin: 0 10px 10px 10px;
+}
+
+.bar-fill {
+  -moz-border-radius: 10px 10px 10px 10px;
+  -webkit-border-radius: 10px 10px 10px 10px;
+  -ms-border-radius: 10px 10px 10px 10px;
+  border-radius: 10px 10px 10px 10px;
+  -moz-animation: bar-fill 1.3s;
+  -webkit-animation: bar-fill 1.3s;
+  -ms-animation: bar-fill 1.3s;
+  animation: bar-fill 1.3s;
+  background-color: $theme_color-xd;
+  display: block;
+  height: 15px;
+  width: 0px;
+}
+.scoreboardBox{
+	h2{
+		text-align: center;
+	}
+	ul{
+		padding: 0;
+		width: 20%;
+		border: 2px solid #fff;
+		border-radius: 20px;
+		margin:auto;
+		text-align: center;
+		background-color: $theme_color-l;
+	}
+}
+div.center{
+	margin: auto;
+	a{
+		margin: auto;
+	}
+}
