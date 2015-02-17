@@ -25,7 +25,7 @@ $border: 2px solid #FFF;
 	margin: auto;
 	padding: 10px 30px 30px 30px;
 	border: $border;
-	border-radius: 5px;
+	border-radius: 20px;
 }
 
 @mixin large-text {
@@ -58,7 +58,6 @@ body {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	height: 80vh;
 }
 
 ul {
