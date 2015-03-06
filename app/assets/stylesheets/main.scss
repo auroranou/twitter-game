@@ -5,9 +5,10 @@
 /*variables*/
 $montserrat: 'Montserrat', sans-serif;
 $open-sans: 'Open Sans', sans-serif;
-$pink: #FFD9EA;
-$pink-d: darken($pink, 15%);
-$pink-l: lighten($pink, 5%);
+$theme_color: #ccD9EA;
+$theme_color-xd: darken($theme_color, 22%);
+$theme_color-d: darken($theme_color, 15%);
+$theme_color-l: lighten($theme_color, 5%);
 $border: 2px solid #FFF;
 
 /*mixins*/
@@ -24,7 +25,7 @@ $border: 2px solid #FFF;
 	margin: auto;
 	padding: 10px 30px 30px 30px;
 	border: $border;
-	border-radius: 5px;
+	border-radius: 20px;
 }
 
 @mixin large-text {
@@ -38,7 +39,7 @@ $border: 2px solid #FFF;
 	margin: auto;
 	border: $border;
 	border-radius: 5px;
-	background-color: $pink-d;
+	background-color: $theme_color-d;
 	color: #FFF;
 }
 
@@ -49,15 +50,14 @@ $border: 2px solid #FFF;
 
 body {
 	font-family: $montserrat;
-	background-color: $pink;
-	color: $pink-d;
+	background-color: $theme_color;
+	color: $theme_color-d;
 }
 
 .container {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	height: 80vh;
 }
 
 ul {

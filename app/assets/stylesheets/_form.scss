@@ -3,7 +3,7 @@
 form {
 	@include partial;
 	text-align: center;
-	background-color: $pink-l;
+	background-color: $theme_color-l;
 	.field {
 		/*padding: 10px 0;*/
 	}
@@ -11,7 +11,7 @@ form {
 		/*padding: 10px 0;*/
 	}
 	a {
-		color: $pink-d;
+		color: $theme_color-d;
 	}
 }
 

@@ -96,6 +96,7 @@ QuestionView.prototype = {
 				url: window.location.origin + "/questions/" + this.questionId + "/create_" + result + "_answer",
 				success: function(response, status, jqXHR) {
 					console.log(response);
+					self.updateScoreboard();
 					self.nextQuestion();
 				},
 				error: function(response){
@@ -117,6 +118,24 @@ QuestionView.prototype = {
 			q.load(function(response){
 				newView = new QuestionView(response);
 			});
+		});
+	},
+	updateScoreboard: function(){
+		console.log('hello')
+		$.ajax({
+			type: "GET",
+			dataType: "json",
+			url: window.location.origin + "/users.json",
+			success: function(response){
+				console.log(response)
+				$(".scoreboard").children().remove()
+				for(var i = 0; i < response.length; i++){
+					$(".scoreboard").append("<li><p>" + response[i]["email"]+ "</p><p>Score: " + response[i]["score"] + "</p><div class='bar-wrap'><span class='bar-fill' style='width: " + (response[i]["score"]/response[0]["score"]) * 100 + "%;'></span></div></li>");
+				}
+			},
+			error: function(response){
+				console.log("error");
+			}
 		});
 	}
 }

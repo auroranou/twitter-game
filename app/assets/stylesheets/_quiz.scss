@@ -5,14 +5,16 @@
 	@include buttons;
 	padding: 0 25px;
 	font-size: 50px;
+	margin-top: 1em;
+	margin-bottom: 1em;
 }
 
 .quiz {
 	@include partial;
 	text-align: center;
-	background-color: $pink-l;
+	background-color: $theme_color-l;
 	#quit {
-		color: $pink-d;
+		color: $theme_color-d;
 		display: block;
 		float: right;
 	}
