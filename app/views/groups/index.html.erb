@@ -9,6 +9,7 @@
 		<tr>
 			<th><%= g.name %></th> 
 			<th><%= link_to 'Join group', '/groups/' + g.id.to_s + '/join_group', :class => "button", :id => "joingroup" %></th>
+			<th class='line'> | </th>
 			<th><%= link_to 'See scoreboard', group_path(g), :class => "button", :id => "seescoreboard" %></th>
 		</tr>	
 	<% end %>
