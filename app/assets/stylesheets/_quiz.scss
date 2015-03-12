@@ -11,6 +11,7 @@
 
 .quiz {
 	@include partial;
+	z-index: 2;
 	text-align: center;
 	background-color: $theme_color-l;
 	#quit {

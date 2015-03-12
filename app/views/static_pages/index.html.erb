@@ -1,17 +1,7 @@
 <div class='container'>
   <button id='start'>Start!</button>
   <%= render 'quiz' %>
-  <div class="scoreboardBox">
-    <ul class='scoreboard'>
-      <% @users.each do |u| %>
-      <li>
-        <p><%= u.email %></p>
-        <p>Score: <%= u.score %></p>
-        <div class="bar-wrap"><span class="bar-fill" style="width: <%= (u.score.to_f / @topscore.score) * 100 %>%;"></span></div>
-      </li>
-    <% end %>
-    </ul>
-  </div>
+  <%= render 'score' %>
 </div>
 
 
@@ -28,7 +18,7 @@ $('#start').on('click', function(event){
 
 $('#quit').on('click', function(event){
 	event.preventDefault();
-	$('#start').show();
 	$('.quiz').hide();
+  $('#start').show();
 })
 </script>
